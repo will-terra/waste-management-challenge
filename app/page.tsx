@@ -1,10 +1,15 @@
-import type { Metadata } from "next";
-import { Counter } from "./components/counter/Counter";
+"use client"
+import { RadioFilter } from "./components/molecules/RadioFilter";
+import { ProductGrid } from "./components/organisms/ProductGrid";
 
 export default function IndexPage() {
-  return <div> Skip</div>;
+
+  return (
+    <div className="flex flex-col items-center">
+      <ProductGrid />
+      <RadioFilter property="allowedOnRoad" ariaLabel="Allowed on road" values={["yes", "no"]} />
+
+
+    </div>);
 }
 
-export const metadata: Metadata = {
-  title: "Redux Toolkit",
-};
