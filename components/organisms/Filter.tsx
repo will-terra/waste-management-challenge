@@ -11,22 +11,52 @@ export const Filter = () => {
     const allowsHeavyWasteValue = useAppSelector((state) => state.skips.filters.boolean.allows_heavy_waste)
     const allowedOnRoadValue = useAppSelector((state) => state.skips.filters.boolean.allowed_on_road)
     const hirePeriodDaysValue = useAppSelector((state) => state.skips.filters.numeric.hire_period_days)
+    const transportCostValue = useAppSelector((state) => state.skips.filters.numeric.transport_cost)
+    const perTonneCostValue = useAppSelector((state) => state.skips.filters.numeric.per_tonne_cost)
     const dispatch = useAppDispatch();
-    const handleBooleanValueChange = (property: "allowed_on_road" | "allows_heavy_waste", value: boolean) => {
+    const handleBooleanValueChange = (property: SkipProperty.ALLOWED_ON_ROAD | SkipProperty.ALLOWS_HEAVY_WASTE, value: boolean) => {
         dispatch(handleBooleanFilter({ property, value }))
     }
-    const handleNumericValueChange = (property: "hire_period_days", value: number) => {
+    const handleNumericValueChange = (property: SkipProperty.HIRE_PERIOD_DAYS | SkipProperty.TRANSPORT_COST | SkipProperty.PER_TONNE_COST, value: number) => {
         dispatch(handleNumericFilter({ property, value }))
     }
 
 
-    const onClick = (property: "allowed_on_road" | "allows_heavy_waste") => {
-        dispatch(removeBooleanFilter({ property }))
+    const onClick = (property: SkipProperty) => {
+        if (property === SkipProperty.ALLOWS_HEAVY_WASTE || property === SkipProperty.ALLOWED_ON_ROAD) {
+            dispatch(handleBooleanFilter({ property, value: null }))
+        } else {
+            dispatch(handleNumericFilter({ property, value: null }))
+        }
     }
     return (
         <div className="flex flex-col min-h-full bg-amber-300 self-start p-4 m-4">
             <>
-                <label> Allowed on road</label>
+                <label> Per tonne cost</label>
+                <NumericFilter
+                    property={SkipProperty.PER_TONNE_COST}
+                    ariaLabel="Per tonne cost"
+                    selectedValue={perTonneCostValue}
+                    onValueChange={handleNumericValueChange}>
+                    <RadioItem value={0} checked={perTonneCostValue === 0} label="Free" />
+                    <RadioItem value={236} checked={perTonneCostValue === 236} label="236" />
+                    <RemoveButton onClick={() => onClick(SkipProperty.PER_TONNE_COST)} />
+                </NumericFilter>
+            </>
+            <>
+                <label> Transport Cost</label>
+                <NumericFilter
+                    property={SkipProperty.TRANSPORT_COST}
+                    ariaLabel="Transport Cost"
+                    selectedValue={transportCostValue}
+                    onValueChange={handleNumericValueChange}>
+                    <RadioItem value={0} checked={transportCostValue === 0} label="Free" />
+                    <RadioItem value={236} checked={transportCostValue === 236} label="236" />
+                    <RemoveButton onClick={() => onClick(SkipProperty.TRANSPORT_COST)} />
+                </NumericFilter>
+            </>
+            <>
+                <label> Hire period days</label>
                 <NumericFilter
                     property={SkipProperty.HIRE_PERIOD_DAYS}
                     ariaLabel="Hire period days"
@@ -34,7 +64,7 @@ export const Filter = () => {
                     onValueChange={handleNumericValueChange}>
                     <RadioItem value={7} checked={hirePeriodDaysValue === 7} label="7" />
                     <RadioItem value={14} checked={hirePeriodDaysValue === 14} label="14" />
-                    <RemoveButton onClick={() => onClick(SkipProperty.ALLOWED_ON_ROAD)} />
+                    <RemoveButton onClick={() => onClick(SkipProperty.HIRE_PERIOD_DAYS)} />
                 </NumericFilter>
             </>
             <>

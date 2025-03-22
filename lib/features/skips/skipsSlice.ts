@@ -15,6 +15,8 @@ interface skipsSliceState {
         },
         numeric: {
             hire_period_days: number | null;
+            transport_cost: number | null;
+            per_tonne_cost: number | null;
         };
     };
 }
@@ -31,18 +33,20 @@ export const skipsSlice = createAppSlice({
             },
             numeric: {
                 hire_period_days: null,
+                transport_cost: null,
+                per_tonne_cost: null,
             }
         },
         status: 'idle',
         error: undefined,
     } as skipsSliceState,
     reducers: (create) => ({
-        handleBooleanFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['boolean'], value: boolean }>) => {
+        handleBooleanFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['boolean'], value: boolean | null }>) => {
             if (action.payload.property in state.filters.boolean) {
                 state.filters.boolean[action.payload.property] = action.payload.value;
             }
         }),
-        handleNumericFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['numeric'], value: number }>) => {
+        handleNumericFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['numeric'], value: number | null }>) => {
             if (action.payload.property in state.filters.numeric) {
                 state.filters.numeric[action.payload.property] = action.payload.value;
 
@@ -64,8 +68,12 @@ export const skipsSlice = createAppSlice({
 
                 const hirePeriodFilter = state.filters.numeric.hire_period_days === null ||
                     skip.hire_period_days === state.filters.numeric.hire_period_days;
+                const transportCostFilter = state.filters.numeric.transport_cost === null ||
+                    skip.transport_cost === state.filters.numeric.transport_cost;
+                const perTonneCostFilter = state.filters.numeric.per_tonne_cost === null ||
+                    skip.per_tonne_cost === state.filters.numeric.per_tonne_cost;
 
-                return allowedOnRoadFilter && heavyWasteFilter && hirePeriodFilter;
+                return allowedOnRoadFilter && heavyWasteFilter && hirePeriodFilter && transportCostFilter && perTonneCostFilter;
             });
         })
     }),

@@ -12,8 +12,12 @@ export interface Skip {
     allows_heavy_waste: boolean
 }
 
+
+
 export enum SkipProperty {
     ALLOWED_ON_ROAD = "allowed_on_road",
     ALLOWS_HEAVY_WASTE = "allows_heavy_waste",
-    HIRE_PERIOD_DAYS = "hire_period_days"
+    HIRE_PERIOD_DAYS = "hire_period_days",
+    TRANSPORT_COST = "transport_cost",
+    PER_TONNE_COST = "per_tonne_cost",
 }

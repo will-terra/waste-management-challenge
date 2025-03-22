@@ -1,11 +1,12 @@
+import { SkipProperty } from "@/types/types";
 import { RadioGroup } from "@base-ui-components/react";
 
 interface BooleanFilterProps {
-    property: "allowed_on_road" | "allows_heavy_waste";
+    property: SkipProperty.ALLOWED_ON_ROAD | SkipProperty.ALLOWS_HEAVY_WASTE;
     ariaLabel: string;
     children: React.ReactNode;
     selectedValue: boolean | null;
-    onValueChange: (property: "allowed_on_road" | "allows_heavy_waste", value: boolean) => void;
+    onValueChange: (property: SkipProperty.ALLOWED_ON_ROAD | SkipProperty.ALLOWS_HEAVY_WASTE, value: boolean) => void;
 }
 
 export const BooleanFilter = (props: BooleanFilterProps) => {

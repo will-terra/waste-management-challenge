@@ -3,7 +3,7 @@ import { Radio } from '@base-ui-components/react'
 import { MainButton } from './MainButton';
 
 interface RadioItemProps {
-    value: boolean | number;
+    value: boolean | number | null;
     checked: boolean;
     label: string;
 }
