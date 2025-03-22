@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { StoreProvider } from "./StoreProvider";
 
 import "@/styles/globals.css";
-import styles from "@/styles/layout.module.css";
 
 interface Props {
   readonly children: ReactNode;
@@ -13,19 +12,9 @@ export default function RootLayout({ children }: Props) {
     <StoreProvider>
       <html lang="en">
         <body>
-          <section className={styles.container}>
-            <nav ></nav>
-
-            <header className={styles.header}>
-
-            </header>
-
-            <main className={styles.main}>{children}</main>
-
-            <footer className={styles.footer}>
-
-            </footer>
-          </section>
+          <div className="bg-gray-400 min-h-screen"  >
+            <main >{children}</main>
+          </div>
         </body>
       </html>
     </StoreProvider>
