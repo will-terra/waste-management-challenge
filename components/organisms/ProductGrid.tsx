@@ -22,10 +22,13 @@ export const ProductGrid = (props: Props) => {
     }
 
     return (
-        <div className="flex flex-col">
-            {skips.map((item) => (
-                <ProductCard key={item.id} {...item} />
-            ))}
+        <div className="flex flex-col h-full w-full self-start mt-4 p-4 bg-amber-300">
+            <p className="text-6xl font-bold text-white self-center mb-4">Choose your skip</p>
+            <div className="flex flex-wrap gap-12 justify-center">
+                {skips.map((item) => (
+                    <ProductCard key={item.id} {...item} />
+                ))}
+            </div>
         </div>
     );
 }
