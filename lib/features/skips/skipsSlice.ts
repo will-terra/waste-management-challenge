@@ -9,8 +9,13 @@ interface skipsSliceState {
     skips: Skip[];
     filteredSkips: Skip[];
     filters: {
-        allowed_on_road: boolean | null;
-        allows_heavy_waste: boolean | null;
+        boolean: {
+            allowed_on_road: boolean | null;
+            allows_heavy_waste: boolean | null;
+        },
+        numeric: {
+            hire_period_days: number | null;
+        };
     };
 }
 
@@ -20,24 +25,47 @@ export const skipsSlice = createAppSlice({
         skips: [],
         filteredSkips: [],
         filters: {
-            allowed_on_road: null,
-            allows_heavy_waste: null
+            boolean: {
+                allowed_on_road: null,
+                allows_heavy_waste: null,
+            },
+            numeric: {
+                hire_period_days: null,
+            }
         },
         status: 'idle',
         error: undefined,
     } as skipsSliceState,
     reducers: (create) => ({
-        handleFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters'], value: boolean }>) => {
-            state.filters[action.payload.property] = action.payload.value;
+        handleBooleanFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['boolean'], value: boolean }>) => {
+            if (action.payload.property in state.filters.boolean) {
+                state.filters.boolean[action.payload.property] = action.payload.value;
+            }
+        }),
+        handleNumericFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['numeric'], value: number }>) => {
+            if (action.payload.property in state.filters.numeric) {
+                state.filters.numeric[action.payload.property] = action.payload.value;
+
+            }
 
         }),
-        removeFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters'] }>) => {
-            state.filters[action.payload.property] = null;
+        removeBooleanFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['boolean'] }>) => {
+            if (action.payload.property in state.filters.boolean) {
+                state.filters.boolean[action.payload.property] = null;
+            }
         }),
         applyFilters: create.reducer((state) => {
             state.filteredSkips = state.skips.filter((skip) => {
-                return (state.filters.allowed_on_road === null || skip.allowed_on_road === state.filters.allowed_on_road) &&
-                    (state.filters.allows_heavy_waste === null || skip.allows_heavy_waste === state.filters.allows_heavy_waste);
+                const allowedOnRoadFilter = state.filters.boolean.allowed_on_road === null ||
+                    skip.allowed_on_road === state.filters.boolean.allowed_on_road;
+
+                const heavyWasteFilter = state.filters.boolean.allows_heavy_waste === null ||
+                    skip.allows_heavy_waste === state.filters.boolean.allows_heavy_waste;
+
+                const hirePeriodFilter = state.filters.numeric.hire_period_days === null ||
+                    skip.hire_period_days === state.filters.numeric.hire_period_days;
+
+                return allowedOnRoadFilter && heavyWasteFilter && hirePeriodFilter;
             });
         })
     }),
@@ -58,4 +86,4 @@ export const skipsSlice = createAppSlice({
     }
 });
 
-export const { handleFilter, removeFilter, applyFilters } = skipsSlice.actions;
+export const { handleBooleanFilter, handleNumericFilter, removeBooleanFilter, applyFilters } = skipsSlice.actions;
