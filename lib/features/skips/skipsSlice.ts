@@ -10,7 +10,7 @@ interface skipsSliceState {
     filteredSkips: Skip[];
     filters: {
         allowed_on_road: boolean | null;
-        allows_heavy_waste: boolean | null
+        allows_heavy_waste: boolean | null;
     };
 }
 
@@ -27,14 +27,6 @@ export const skipsSlice = createAppSlice({
         error: undefined,
     } as skipsSliceState,
     reducers: (create) => ({
-        filterByAllowedOnRoad: create.reducer((state, action: PayloadAction<boolean>) => {
-            state.filters.allowed_on_road = action.payload;
-            state.filteredSkips = state.skips.filter((skip) => skip.allowed_on_road === action.payload);
-        }),
-        filterByAllowsHeavyWaste: create.reducer((state, action: PayloadAction<boolean>) => {
-            state.filters.allows_heavy_waste = action.payload;
-            state.filteredSkips = state.skips.filter((skip) => skip.allows_heavy_waste === action.payload);
-        }),
         handleFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters'], value: boolean }>) => {
             state.filters[action.payload.property] = action.payload.value;
 
@@ -67,5 +59,3 @@ export const skipsSlice = createAppSlice({
 });
 
 export const { handleFilter, removeFilter, applyFilters } = skipsSlice.actions;
-export const { } = skipsSlice.selectors;
-export default skipsSlice.reducer;
