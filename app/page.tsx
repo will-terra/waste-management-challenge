@@ -2,7 +2,7 @@
 import { RadioFilter } from "./components/molecules/RadioFilter";
 import { ProductGrid } from "./components/organisms/ProductGrid";
 
-export default function IndexPage() {
+export default function HomePage() {
 
   return (
     <div className="flex flex-col items-center">

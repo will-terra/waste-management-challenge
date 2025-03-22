@@ -8,7 +8,7 @@ interface MainButtonProps {
     onClick?: () => void;
 }
 
-const MainButton: React.FC<MainButtonProps> = ({
+export const MainButton: React.FC<MainButtonProps> = ({
     children,
     ariaLabel,
     size = "small",
@@ -35,4 +35,3 @@ const MainButton: React.FC<MainButtonProps> = ({
     );
 };
 
-export default MainButton;

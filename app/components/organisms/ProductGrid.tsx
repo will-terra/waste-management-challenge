@@ -1,6 +1,6 @@
 "use client"
-import ProductCard from "../molecules/ProductCard";
 import { useAppSelector } from "@/lib/hooks";
+import { ProductCard } from "../molecules/ProductCard";
 
 type Props = {}
 

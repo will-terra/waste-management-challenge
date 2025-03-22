@@ -1,10 +1,8 @@
-
-
 import { addRadioFilter, removeRadioFilter } from "@/lib/features/skips/skipsSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { RadioGroup } from "@base-ui-components/react";
-import RadioItem from "../atoms/RadioItem";
-import MainButton from "../atoms/MainButton";
+import { RemoveButton } from "../atoms/RemoveButton";
+import { RadioItem } from "../atoms/RadioItem";
 
 interface RadioFilterProps {
     property: "allowedOnRoad";
@@ -19,9 +17,6 @@ export const RadioFilter = (props: RadioFilterProps) => {
     const handleValueChange = (value: unknown) => {
         const booleanValue = value === "yes" ? true : false;
         dispatch(addRadioFilter({ property, value: booleanValue }));
-    }
-    const handleRemoveFilter = () => {
-        dispatch(removeRadioFilter({ property }));
     }
 
     return (
@@ -39,14 +34,7 @@ export const RadioFilter = (props: RadioFilterProps) => {
                     checked={false}
                 />
             ))}
-            <MainButton
-                ariaLabel={`Remove filter`}
-                variant={"black"}
-                size="large"
-                onClick={() => handleRemoveFilter()}
-            >
-                X
-            </MainButton>
+            <RemoveButton property={property} />
         </RadioGroup >
     );
 };
