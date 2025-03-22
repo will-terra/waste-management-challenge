@@ -10,4 +10,9 @@ export interface Skip {
     postcode: string,
     allowed_on_road: boolean,
     allows_heavy_waste: boolean
-}s
+}
+
+export enum SkipProperty {
+    ALLOWED_ON_ROAD = "allowed_on_road",
+    ALLOWS_HEAVY_WASTE = "allows_heavy_waste"
+}

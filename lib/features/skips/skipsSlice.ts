@@ -1,15 +1,17 @@
-import { Skip } from "@/app/types/types";
+import { Skip } from "@/types/types";
 import { createAppSlice } from "@/lib/createAppSlice";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { fetchSkips } from "./skipsApiSlice";
-import { stat } from "fs";
 
 interface skipsSliceState {
     status: 'idle' | 'loading' | 'succeeded' | 'failed';
     error: string | undefined;
     skips: Skip[];
     filteredSkips: Skip[];
-    filters: { allowedOnRoad: boolean | null; }
+    filters: {
+        allowed_on_road: boolean | null;
+        allows_heavy_waste: boolean | null
+    };
 }
 
 export const skipsSlice = createAppSlice({
@@ -17,23 +19,35 @@ export const skipsSlice = createAppSlice({
     initialState: {
         skips: [],
         filteredSkips: [],
-        filters: { allowedOnRoad: null },
+        filters: {
+            allowed_on_road: null,
+            allows_heavy_waste: null
+        },
         status: 'idle',
         error: undefined,
     } as skipsSliceState,
     reducers: (create) => ({
         filterByAllowedOnRoad: create.reducer((state, action: PayloadAction<boolean>) => {
-            state.filters.allowedOnRoad = action.payload;
+            state.filters.allowed_on_road = action.payload;
             state.filteredSkips = state.skips.filter((skip) => skip.allowed_on_road === action.payload);
         }),
-        addRadioFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters'], value: boolean }>) => {
+        filterByAllowsHeavyWaste: create.reducer((state, action: PayloadAction<boolean>) => {
+            state.filters.allows_heavy_waste = action.payload;
+            state.filteredSkips = state.skips.filter((skip) => skip.allows_heavy_waste === action.payload);
+        }),
+        handleFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters'], value: boolean }>) => {
             state.filters[action.payload.property] = action.payload.value;
-            state.filteredSkips = state.skips.filter((skip) => skip.allowed_on_road === state.filters.allowedOnRoad);
+
         }),
-        removeRadioFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters'] }>) => {
+        removeFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters'] }>) => {
             state.filters[action.payload.property] = null;
-            state.filteredSkips = state.skips;
         }),
+        applyFilters: create.reducer((state) => {
+            state.filteredSkips = state.skips.filter((skip) => {
+                return (state.filters.allowed_on_road === null || skip.allowed_on_road === state.filters.allowed_on_road) &&
+                    (state.filters.allows_heavy_waste === null || skip.allows_heavy_waste === state.filters.allows_heavy_waste);
+            });
+        })
     }),
     extraReducers: (builder) => {
         builder
@@ -52,6 +66,6 @@ export const skipsSlice = createAppSlice({
     }
 });
 
-export const { filterByAllowedOnRoad, addRadioFilter, removeRadioFilter } = skipsSlice.actions;
+export const { handleFilter, removeFilter, applyFilters } = skipsSlice.actions;
 export const { } = skipsSlice.selectors;
 export default skipsSlice.reducer;

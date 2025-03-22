@@ -1,12 +1,14 @@
-import { addRadioFilter, removeRadioFilter } from "@/lib/features/skips/skipsSlice";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { useAppSelector } from "@/lib/hooks";
+import { SkipProperty } from "@/types/types";
 import { RadioGroup } from "@base-ui-components/react";
 
+
+
 interface RadioFilterProps {
-    property: "allowedOnRoad";
+    property: SkipProperty;
     ariaLabel: string;
     children: React.ReactNode;
-    onValueChange: (value: unknown, event: Event) => void;
+    onValueChange: (property: SkipProperty, value: boolean) => void;
 }
 
 export const RadioFilter = (props: RadioFilterProps) => {
@@ -18,7 +20,7 @@ export const RadioFilter = (props: RadioFilterProps) => {
             aria-label={ariaLabel}
             name={property}
             value={selectedValue}
-            onValueChange={(value, event) => onValueChange(value, event)}
+            onValueChange={(value) => onValueChange(property as SkipProperty, value as boolean)}
             className="flex gap-2"
         >
             {children}
