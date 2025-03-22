@@ -36,8 +36,6 @@ export const Filter = () => {
                 <label> Price</label>
                 <RangeSlider />
             </>
-
-
             <>
                 <label> Per tonne cost</label>
                 <NumericFilter
