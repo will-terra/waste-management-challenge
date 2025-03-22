@@ -1,11 +1,12 @@
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
 import { RadioItem } from "../atoms/RadioItem"
 import { RemoveButton } from "../atoms/RemoveButton"
-import { applyFilters, handleBooleanFilter, handleNumericFilter, removeBooleanFilter } from "@/lib/features/skips/skipsSlice"
+import { applyFilters, handleBooleanFilter, handleNumericFilter } from "@/lib/features/skips/skipsSlice"
 import { SkipProperty } from "@/types/types"
 import { MainButton } from "../atoms/MainButton"
 import { NumericFilter } from "../molecules/NumericFilter"
 import { BooleanFilter } from "../molecules/BooleanFilter"
+import { RangeSlider } from "../atoms/RangeSlider"
 
 export const Filter = () => {
     const allowsHeavyWasteValue = useAppSelector((state) => state.skips.filters.boolean.allows_heavy_waste)
@@ -30,7 +31,13 @@ export const Filter = () => {
         }
     }
     return (
-        <div className="flex flex-col min-h-full bg-amber-300 self-start p-4 m-4">
+        <div className="flex flex-col min-h-full gap-2 bg-amber-300 self-start p-4 m-4">
+            <>
+                <label> Price</label>
+                <RangeSlider />
+            </>
+
+
             <>
                 <label> Per tonne cost</label>
                 <NumericFilter
@@ -47,7 +54,7 @@ export const Filter = () => {
                 <label> Transport Cost</label>
                 <NumericFilter
                     property={SkipProperty.TRANSPORT_COST}
-                    ariaLabel="Transport Cost"
+                    ariaLabel="Transport cost"
                     selectedValue={transportCostValue}
                     onValueChange={handleNumericValueChange}>
                     <RadioItem value={0} checked={transportCostValue === 0} label="Free" />

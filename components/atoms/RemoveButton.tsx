@@ -6,7 +6,6 @@ interface RemoveButtonProps {
 
 export const RemoveButton: React.FC<RemoveButtonProps> = ({ onClick }) => {
 
-
     return (
         <MainButton
             ariaLabel={`Remove filter`}

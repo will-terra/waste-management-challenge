@@ -18,6 +18,9 @@ interface skipsSliceState {
             transport_cost: number | null;
             per_tonne_cost: number | null;
         };
+        range: {
+            price: [number, number];
+        }
     };
 }
 
@@ -35,6 +38,9 @@ export const skipsSlice = createAppSlice({
                 hire_period_days: null,
                 transport_cost: null,
                 per_tonne_cost: null,
+            },
+            range: {
+                price: [311, 944]
             }
         },
         status: 'idle',
@@ -53,9 +59,9 @@ export const skipsSlice = createAppSlice({
             }
 
         }),
-        removeBooleanFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['boolean'] }>) => {
-            if (action.payload.property in state.filters.boolean) {
-                state.filters.boolean[action.payload.property] = null;
+        handleRangeFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['range'], value: [number, number] }>) => {
+            if (action.payload.property === 'price') {
+                state.filters.range.price = action.payload.value;
             }
         }),
         applyFilters: create.reducer((state) => {
@@ -72,8 +78,10 @@ export const skipsSlice = createAppSlice({
                     skip.transport_cost === state.filters.numeric.transport_cost;
                 const perTonneCostFilter = state.filters.numeric.per_tonne_cost === null ||
                     skip.per_tonne_cost === state.filters.numeric.per_tonne_cost;
-
-                return allowedOnRoadFilter && heavyWasteFilter && hirePeriodFilter && transportCostFilter && perTonneCostFilter;
+                const priceFilter = skip.price_before_vat && state.filters.range.price?.[1] &&
+                    skip.price_before_vat >= state.filters.range.price[0] &&
+                    skip.price_before_vat <= state.filters.range.price[1]
+                return allowedOnRoadFilter && heavyWasteFilter && hirePeriodFilter && transportCostFilter && perTonneCostFilter && priceFilter;
             });
         })
     }),
@@ -94,4 +102,4 @@ export const skipsSlice = createAppSlice({
     }
 });
 
-export const { handleBooleanFilter, handleNumericFilter, removeBooleanFilter, applyFilters } = skipsSlice.actions;
+export const { handleBooleanFilter, handleNumericFilter, handleRangeFilter, applyFilters } = skipsSlice.actions;
