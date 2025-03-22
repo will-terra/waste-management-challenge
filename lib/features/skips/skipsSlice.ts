@@ -8,6 +8,7 @@ interface skipsSliceState {
     error: string | undefined;
     skips: Skip[];
     filteredSkips: Skip[];
+    isMobile: boolean;
     filters: {
         boolean: {
             allowed_on_road: boolean | null;
@@ -29,6 +30,7 @@ export const skipsSlice = createAppSlice({
     initialState: {
         skips: [],
         filteredSkips: [],
+        isMobile: false,
         filters: {
             boolean: {
                 allowed_on_road: null,
@@ -83,6 +85,9 @@ export const skipsSlice = createAppSlice({
                     skip.price_before_vat <= state.filters.range.price[1]
                 return allowedOnRoadFilter && heavyWasteFilter && hirePeriodFilter && transportCostFilter && perTonneCostFilter && priceFilter;
             });
+        }),
+        setIsMobile: create.reducer((state, action: PayloadAction<boolean>) => {
+            state.isMobile = action.payload;
         })
     }),
     extraReducers: (builder) => {
@@ -102,4 +107,4 @@ export const skipsSlice = createAppSlice({
     }
 });
 
-export const { handleBooleanFilter, handleNumericFilter, handleRangeFilter, applyFilters } = skipsSlice.actions;
+export const { handleBooleanFilter, handleNumericFilter, handleRangeFilter, applyFilters, setIsMobile } = skipsSlice.actions;
