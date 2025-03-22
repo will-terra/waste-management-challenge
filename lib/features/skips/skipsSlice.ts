@@ -22,9 +22,9 @@ export const skipsSlice = createAppSlice({
         error: undefined,
     } as skipsSliceState,
     reducers: (create) => ({
-        filterByAllowedOnRoad: create.reducer((state, action: PayloadAction<string>) => {
-            const booleanValue = action.payload === "yes" ? true : false;
-            state.filteredSkips = state.skips.filter((skip) => skip.allowed_on_road === booleanValue);
+        filterByAllowedOnRoad: create.reducer((state, action: PayloadAction<boolean>) => {
+            state.filters.allowedOnRoad = action.payload;
+            state.filteredSkips = state.skips.filter((skip) => skip.allowed_on_road === action.payload);
         }),
         addRadioFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters'], value: boolean }>) => {
             state.filters[action.payload.property] = action.payload.value;
@@ -52,6 +52,6 @@ export const skipsSlice = createAppSlice({
     }
 });
 
-export const { addRadioFilter, removeRadioFilter } = skipsSlice.actions;
+export const { filterByAllowedOnRoad, addRadioFilter, removeRadioFilter } = skipsSlice.actions;
 export const { } = skipsSlice.selectors;
 export default skipsSlice.reducer;

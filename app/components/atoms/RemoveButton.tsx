@@ -15,8 +15,8 @@ export const RemoveButton = (props: RemoveButtonProps) => {
     return (
         <MainButton
             ariaLabel={`Remove filter`}
-            variant={"black"}
-            size="large"
+            variant="gray"
+            size="small"
             onClick={() => handleRemoveFilter()}
         >
             X

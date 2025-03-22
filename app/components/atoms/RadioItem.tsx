@@ -3,19 +3,20 @@ import { Radio } from '@base-ui-components/react'
 import { MainButton } from './MainButton';
 
 interface RadioItemProps {
-    value: string | number;
+    value: boolean | number;
     checked: boolean;
+    label: string;
 }
 
-export const RadioItem = ({ value, checked }: RadioItemProps) => {
+export const RadioItem = ({ value, checked, label }: RadioItemProps) => {
     return (
         <Radio.Root value={value}>
             <MainButton
                 ariaLabel={`Filter by ${value}`}
-                variant={checked ? "white" : "black"}
-                size="large"
+                variant={checked ? "blue" : "gray"}
+                size="small"
             >
-                {value}
+                {label}
             </MainButton>
         </Radio.Root>
     )
