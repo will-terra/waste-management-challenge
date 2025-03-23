@@ -22,8 +22,8 @@ export const MobileFilter = () => {
                 </MainButton>
             </Menu.Trigger>
             <Menu.Portal>
-                <Menu.Positioner className={"min-w-full rounded-md"}>
-                    <Menu.Popup>
+                <Menu.Positioner className="min-w-screen rounded-md">
+                    <Menu.Popup className="mt-2 mr-2 overflow-scroll">
                         <Filter />
                     </Menu.Popup>
                 </Menu.Positioner>
