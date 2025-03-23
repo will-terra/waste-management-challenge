@@ -20,7 +20,7 @@ interface skipsSliceState {
             per_tonne_cost: number | null;
         };
         range: {
-            price: [number, number];
+            price: number | [number, number];
         }
     };
 }
@@ -61,7 +61,7 @@ export const skipsSlice = createAppSlice({
             }
 
         }),
-        handleRangeFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['range'], value: [number, number] }>) => {
+        handleRangeFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['range'], value: number | [number, number] }>) => {
             if (action.payload.property === 'price') {
                 state.filters.range.price = action.payload.value;
             }
@@ -80,9 +80,9 @@ export const skipsSlice = createAppSlice({
                     skip.transport_cost === state.filters.numeric.transport_cost;
                 const perTonneCostFilter = state.filters.numeric.per_tonne_cost === null ||
                     skip.per_tonne_cost === state.filters.numeric.per_tonne_cost;
-                const priceFilter = skip.price_before_vat && state.filters.range.price?.[1] &&
+                const priceFilter = skip.price_before_vat !== null && Array.isArray(state.filters.range.price) ?
                     skip.price_before_vat >= state.filters.range.price[0] &&
-                    skip.price_before_vat <= state.filters.range.price[1]
+                    skip.price_before_vat <= state.filters.range.price[1] : skip.price_before_vat === state.filters.range.price;
                 return allowedOnRoadFilter && heavyWasteFilter && hirePeriodFilter && transportCostFilter && perTonneCostFilter && priceFilter;
             });
         }),

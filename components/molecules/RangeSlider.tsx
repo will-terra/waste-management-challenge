@@ -1,6 +1,6 @@
-import { handleRangeFilter } from '@/lib/features/skips/skipsSlice';
-import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import Slider from '@mui/material/Slider';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
+import { handleRangeFilter } from '@/lib/features/skips/skipsSlice';
 
 export const RangeSlider = () => {
     const rangeValues = useAppSelector((state) => state.skips.filters.range.price)
@@ -14,7 +14,7 @@ export const RangeSlider = () => {
     }
 
     return (
-        <div className="w-40">
+        <div className="w-9/10 md:w-40">
             <Slider
                 getAriaLabel={() => 'Price range'}
                 value={rangeValues}

@@ -17,9 +17,7 @@ export const MobileFilter = (props: Props) => {
                 </MainButton>
             </Menu.Trigger>
             <Menu.Portal>
-                <Menu.Positioner
-                    className={"min-w-full rounded-md"}
-                    sideOffset={8} >
+                <Menu.Positioner className={"min-w-full mt-8 rounded-md"}>
                     <Menu.Popup>
                         <Filter />
                     </Menu.Popup>
