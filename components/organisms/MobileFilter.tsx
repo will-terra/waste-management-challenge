@@ -22,7 +22,7 @@ export const MobileFilter = () => {
                 </MainButton>
             </Menu.Trigger>
             <Menu.Portal>
-                <Menu.Positioner className={"min-w-full mt-8 rounded-md"}>
+                <Menu.Positioner className={"min-w-full rounded-md"}>
                     <Menu.Popup>
                         <Filter />
                     </Menu.Popup>
