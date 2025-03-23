@@ -31,7 +31,7 @@ export const skipsSlice = createAppSlice({
     initialState: {
         skips: [],
         filteredSkips: [],
-        isMobile: false,
+        isMobile: true,
         isMenuOpen: false,
         filters: {
             boolean: {
