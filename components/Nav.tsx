@@ -14,7 +14,7 @@ export const Nav = () => {
   const nextButtonStyles = "flex items-center text-white/60 cursor-not-allowed opacity-50"
 
   return (
-    <div className="flex bg-darkGray justify-center align-center h-20 overflow-x-auto">
+    <div className="flex bg-darkGray justify-center align-center h-16">
       <div className="flex gap-2 items-center">
         {!isMobile && <>
           <button className={prevButtonStyles}>
