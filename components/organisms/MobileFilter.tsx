@@ -4,9 +4,7 @@ import { Filter } from './Filter'
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { setIsMenuOpen } from '@/lib/features/skips/skipsSlice'
 
-type Props = {}
-
-export const MobileFilter = (props: Props) => {
+export const MobileFilter = () => {
     const isMenuOpen = useAppSelector((state) => state.skips.isMenuOpen);
     const dispatch = useAppDispatch();
     const handleMenuOpenChange = () => {
