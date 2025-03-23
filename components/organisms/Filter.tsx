@@ -34,8 +34,7 @@ export const Filter = () => {
     return (
         <div className="flex flex-col self-start items-center w-full md:w-[30vw] min-h-[90dvh]  bg-gray-200 gap-2 p-4 mr-4 md:m-4">
             <>
-                {isMobile ? <></> : <label className="text-4xl font-bold mr-auto mb-4"> Filters:</label>}
-
+                {!isMobile && <label className="text-4xl font-bold mr-auto mb-4"> Filters:</label>}
                 <label className="text-2xl font-bold"> By Price</label>
                 <RangeSlider />
             </>
