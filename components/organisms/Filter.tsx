@@ -33,7 +33,6 @@ export const Filter = () => {
         dispatch(applyFilters())
         dispatch(setIsMenuOpen(false))
     }
-    const filterStyles = "flex flex-col self-start items-center w-full md:w-[30vw] min-h-[90dvh] md:min-h-fit bg-secondaryDarkGray gap-4 px-8 pt-6 pb-12 mr-4 md:m-4 rounded-md"
     return (
         <div className={filterStyles}>
             <>
@@ -110,3 +109,5 @@ export const Filter = () => {
         </div>
     )
 }
+
+const filterStyles = "flex flex-col self-start items-center w-full md:w-[30vw] min-h-[90dvh] md:min-h-fit bg-secondaryDarkGray gap-4 px-8 pt-6 pb-12 mr-4 md:m-4 rounded-md"

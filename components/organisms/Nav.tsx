@@ -10,8 +10,6 @@ import { useAppSelector } from "@/lib/hooks";
 
 export const Nav = () => {
   const isMobile = useAppSelector((state) => state.skips.isMobile);
-  const prevButtonStyles = "flex items-center text-blue cursor-pointer"
-  const nextButtonStyles = "flex items-center text-white/60 cursor-not-allowed opacity-50"
 
   return (
     <div className="flex bg-darkGray justify-center align-center h-16">
@@ -53,3 +51,6 @@ export const Nav = () => {
       </div>
     </div>);
 };
+
+const prevButtonStyles = "flex items-center text-blue cursor-pointer"
+const nextButtonStyles = "flex items-center text-white/60 cursor-not-allowed opacity-50"
