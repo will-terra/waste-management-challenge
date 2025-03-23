@@ -42,7 +42,7 @@ export const Filter = () => {
                 <RangeSlider />
             </>
             <>
-                <label className="text-2xl text-white font-bold"> Per tonne cost</label>
+                <label className="text-2xl text-white font-bold"> Cost per tonne</label>
                 <NumericFilter
                     property={SkipProperty.PER_TONNE_COST}
                     ariaLabel="Per tonne cost"
@@ -66,7 +66,7 @@ export const Filter = () => {
                 </NumericFilter>
             </>
             <>
-                <label className="text-2xl text-white font-bold"> Hire period days</label>
+                <label className="text-2xl text-white font-bold"> Hire period (days)</label>
                 <NumericFilter
                     property={SkipProperty.HIRE_PERIOD_DAYS}
                     ariaLabel="Hire period days"
@@ -78,7 +78,7 @@ export const Filter = () => {
                 </NumericFilter>
             </>
             <>
-                <label className="text-2xl text-white font-bold"> Allows heavy waste</label>
+                <label className="text-2xl text-white font-bold"> Allows heavy waste?</label>
                 <BooleanFilter
                     property={SkipProperty.ALLOWS_HEAVY_WASTE}
                     ariaLabel="Allows heavy waste"
@@ -90,7 +90,7 @@ export const Filter = () => {
                 </BooleanFilter>
             </>
             <>
-                <label className="text-2xl text-white font-bold"> Allowed on road</label>
+                <label className="text-2xl text-white font-bold"> Allowed on road?</label>
                 <BooleanFilter
                     property={SkipProperty.ALLOWED_ON_ROAD}
                     ariaLabel="Allowed on road"
