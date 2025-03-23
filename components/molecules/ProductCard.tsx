@@ -1,15 +1,19 @@
 import Image from 'next/image'
 import skipImage from '../../public/skip.png'
+import heavyIcon from '../../public/heavy.svg'
+import roadIcon from '../../public/road.svg'
+import AddIcon from '@mui/icons-material/Add';
 import { Skip } from '@/types/types'
 
 export const ProductCard = (product: Skip) => {
+    const { allows_heavy_waste, allowed_on_road, price_before_vat } = product
     return (
-        <div className="rounded-lg border-2 p-4 md:p-6 border-lightGray hover:border-lightBlue/50 bg-secondaryDarkGray text-white">
+        <div className="flex flex-col gap-2 rounded-lg border-2 p-4 md:p-6 border-lightGray hover:border-lightBlue/50 bg-secondaryDarkGray text-white">
             <Image
                 priority
                 src={skipImage}
-                alt="skip"
-                width={250}
+                alt="Full skip"
+                width={270}
                 height={200}
                 style={{
                     width: '100%',
@@ -17,9 +21,13 @@ export const ProductCard = (product: Skip) => {
                 }}
             />
             <p className="text-2xl font-bold"> {product.size} Yard Skip</p>
-            <div>Allowed On Road= {product.allowed_on_road ? "Yes" : "No"}</div>
-            <div> Allows heavy waste = {product.allows_heavy_waste ? "Yes" : "No"} </div>
-        </div>
+            <div className="flex justify-between gap-2 min-h-12 items-center">
+                <p className="text-4xl font-black text-lightBlue">£{price_before_vat}<span className="text-sm text-gray-400 ">per week</span></p>
+                <div className="flex w-fit gap-1 bg-gray-400 rounded-md items-center">
+                    {allows_heavy_waste && <Image src={heavyIcon} aria-label="Allows heavy waste" alt="heavy waste icon" width={50} height={50} />}
+                    {allows_heavy_waste && allowed_on_road && <AddIcon />}
+                    {allowed_on_road && <Image src={roadIcon} aria-label="Allowed on road" alt="road icon" width={50} height={50} />}</div>
+            </div></div>
     )
 }
 
