@@ -17,11 +17,11 @@ export const MainButton: React.FC<MainButtonProps> = ({
     className,
     onClick,
 }) => {
-    const options = `${className} flex justify-center items-center cursor-pointer hover:bg-gray-600 ${size === "small"
+    const options = `${className} flex justify-center items-center cursor-pointer hover:bg-lightBlue/60 ${size === "small"
         ? "text-sm py-1 px-4 w-fit max-w-[7rem] "
         : "text-lg py-2  w-full"
-        } ${variant === "gray" ? " bg-lightGray text-white" : "bg-lightBlue text-black"
-        } rounded-md border border-black`;
+        } ${variant === "gray" ? " bg-lightGray " : "bg-lightBlue"
+        } text-white  rounded-md border border-secondaryDarkGray`;
 
     return (
         <div
