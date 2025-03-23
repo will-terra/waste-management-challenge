@@ -1,19 +1,22 @@
 import { Menu } from '@base-ui-components/react'
 import { MainButton } from '../atoms/MainButton'
 import { Filter } from './Filter'
+import { useState } from 'react'
 
 type Props = {}
 
 export const MobileFilter = (props: Props) => {
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
-        <Menu.Root>
-            <Menu.Trigger className=" mt-8 w-9/10">
+        <Menu.Root open={isOpen} onOpenChange={setIsOpen}>
+            <Menu.Trigger className="mt-8 w-9/10">
                 <MainButton
                     ariaLabel="Open filters menu"
                     size="large"
                     variant="blue"
                 >
-                    Filters
+                    Filters {isOpen ? '▲' : '▼'}
                 </MainButton>
             </Menu.Trigger>
             <Menu.Portal>

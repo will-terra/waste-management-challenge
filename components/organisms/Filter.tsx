@@ -22,8 +22,6 @@ export const Filter = () => {
     const handleNumericValueChange = (property: SkipProperty.HIRE_PERIOD_DAYS | SkipProperty.TRANSPORT_COST | SkipProperty.PER_TONNE_COST, value: number) => {
         dispatch(handleNumericFilter({ property, value }))
     }
-
-
     const onClick = (property: SkipProperty) => {
         if (property === SkipProperty.ALLOWS_HEAVY_WASTE || property === SkipProperty.ALLOWED_ON_ROAD) {
             dispatch(handleBooleanFilter({ property, value: null }))
@@ -31,15 +29,16 @@ export const Filter = () => {
             dispatch(handleNumericFilter({ property, value: null }))
         }
     }
+    const filterStyles = "flex flex-col self-start items-center w-full md:w-[30vw] min-h-[90dvh] md:min-h-fit bg-secondaryDarkGray gap-4 px-8 pt-6 pb-12 mr-4 md:m-4 rounded-md"
     return (
-        <div className="flex flex-col self-start items-center w-full md:w-[30vw] min-h-[90dvh]  bg-gray-200 gap-2 p-4 mr-4 md:m-4">
+        <div className={filterStyles}>
             <>
-                {!isMobile && <label className="text-4xl font-bold mr-auto mb-4"> Filters:</label>}
-                <label className="text-2xl font-bold"> By Price</label>
+                {!isMobile && <label className="text-4xl text-white font-bold mr-auto mb-4"> Filters:</label>}
+                <label className="text-2xl text-white font-bold"> By Price</label>
                 <RangeSlider />
             </>
             <>
-                <label className="text-2xl font-bold"> Per tonne cost</label>
+                <label className="text-2xl text-white font-bold"> Per tonne cost</label>
                 <NumericFilter
                     property={SkipProperty.PER_TONNE_COST}
                     ariaLabel="Per tonne cost"
@@ -51,7 +50,7 @@ export const Filter = () => {
                 </NumericFilter>
             </>
             <>
-                <label className="text-2xl font-bold"> Transport Cost</label>
+                <label className="text-2xl text-white font-bold"> Transport Cost</label>
                 <NumericFilter
                     property={SkipProperty.TRANSPORT_COST}
                     ariaLabel="Transport cost"
@@ -63,7 +62,7 @@ export const Filter = () => {
                 </NumericFilter>
             </>
             <>
-                <label className="text-2xl font-bold"> Hire period days</label>
+                <label className="text-2xl text-white font-bold"> Hire period days</label>
                 <NumericFilter
                     property={SkipProperty.HIRE_PERIOD_DAYS}
                     ariaLabel="Hire period days"
@@ -75,7 +74,7 @@ export const Filter = () => {
                 </NumericFilter>
             </>
             <>
-                <label className="text-2xl font-bold"> Allows heavy waste</label>
+                <label className="text-2xl text-white font-bold"> Allows heavy waste</label>
                 <BooleanFilter
                     property={SkipProperty.ALLOWS_HEAVY_WASTE}
                     ariaLabel="Allows heavy waste"
@@ -87,7 +86,7 @@ export const Filter = () => {
                 </BooleanFilter>
             </>
             <>
-                <label className="text-2xl font-bold"> Allowed on road</label>
+                <label className="text-2xl text-white font-bold"> Allowed on road</label>
                 <BooleanFilter
                     property={SkipProperty.ALLOWED_ON_ROAD}
                     ariaLabel="Allowed on road"
@@ -98,7 +97,12 @@ export const Filter = () => {
                     <RemoveButton onClick={() => onClick(SkipProperty.ALLOWED_ON_ROAD)} />
                 </BooleanFilter>
             </>
-            <MainButton className="mt-8" ariaLabel="Apply filters" onClick={() => dispatch(applyFilters())}>Apply filters</MainButton>
+            <MainButton
+                className="mt-8 h-12 max-w-60"
+                size="large"
+                variant="blue"
+                ariaLabel="Apply filters"
+                onClick={() => dispatch(applyFilters())}>Apply filters</MainButton>
         </div>
     )
 }
