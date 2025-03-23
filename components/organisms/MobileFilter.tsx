@@ -1,22 +1,26 @@
 import { Menu } from '@base-ui-components/react'
 import { MainButton } from '../atoms/MainButton'
 import { Filter } from './Filter'
-import { useState } from 'react'
+import { useAppDispatch, useAppSelector } from '@/lib/hooks'
+import { setIsMenuOpen } from '@/lib/features/skips/skipsSlice'
 
 type Props = {}
 
 export const MobileFilter = (props: Props) => {
-    const [isOpen, setIsOpen] = useState(false)
-
+    const isMenuOpen = useAppSelector((state) => state.skips.isMenuOpen);
+    const dispatch = useAppDispatch();
+    const handleMenuOpenChange = () => {
+        dispatch(setIsMenuOpen(!isMenuOpen));
+    }
     return (
-        <Menu.Root open={isOpen} onOpenChange={setIsOpen}>
+        <Menu.Root open={isMenuOpen} onOpenChange={handleMenuOpenChange}>
             <Menu.Trigger className="mt-8 w-9/10">
                 <MainButton
                     ariaLabel="Open filters menu"
                     size="large"
                     variant="blue"
                 >
-                    Filters {isOpen ? '▲' : '▼'}
+                    Filters {isMenuOpen ? '▲' : '▼'}
                 </MainButton>
             </Menu.Trigger>
             <Menu.Portal>

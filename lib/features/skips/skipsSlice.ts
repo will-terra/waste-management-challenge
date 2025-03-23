@@ -9,6 +9,7 @@ interface skipsSliceState {
     skips: Skip[];
     filteredSkips: Skip[];
     isMobile: boolean;
+    isMenuOpen: boolean;
     filters: {
         boolean: {
             allowed_on_road: boolean | null;
@@ -31,6 +32,7 @@ export const skipsSlice = createAppSlice({
         skips: [],
         filteredSkips: [],
         isMobile: false,
+        isMenuOpen: false,
         filters: {
             boolean: {
                 allowed_on_road: null,
@@ -88,6 +90,9 @@ export const skipsSlice = createAppSlice({
         }),
         setIsMobile: create.reducer((state, action: PayloadAction<boolean>) => {
             state.isMobile = action.payload;
+        }),
+        setIsMenuOpen: create.reducer((state, action: PayloadAction<boolean>) => {
+            state.isMenuOpen = action.payload;
         })
     }),
     extraReducers: (builder) => {
@@ -107,4 +112,4 @@ export const skipsSlice = createAppSlice({
     }
 });
 
-export const { handleBooleanFilter, handleNumericFilter, handleRangeFilter, applyFilters, setIsMobile } = skipsSlice.actions;
+export const { handleBooleanFilter, handleNumericFilter, handleRangeFilter, applyFilters, setIsMobile, setIsMenuOpen } = skipsSlice.actions;

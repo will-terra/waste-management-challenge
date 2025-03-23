@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
 import { RadioItem } from "../atoms/RadioItem"
 import { RemoveButton } from "../atoms/RemoveButton"
-import { applyFilters, handleBooleanFilter, handleNumericFilter } from "@/lib/features/skips/skipsSlice"
+import { applyFilters, handleBooleanFilter, handleNumericFilter, setIsMenuOpen } from "@/lib/features/skips/skipsSlice"
 import { SkipProperty } from "@/types/types"
 import { MainButton } from "../atoms/MainButton"
 import { NumericFilter } from "../molecules/NumericFilter"
@@ -28,6 +28,10 @@ export const Filter = () => {
         } else {
             dispatch(handleNumericFilter({ property, value: null }))
         }
+    }
+    const handleApplyFilters = () => {
+        dispatch(applyFilters())
+        dispatch(setIsMenuOpen(false))
     }
     const filterStyles = "flex flex-col self-start items-center w-full md:w-[30vw] min-h-[90dvh] md:min-h-fit bg-secondaryDarkGray gap-4 px-8 pt-6 pb-12 mr-4 md:m-4 rounded-md"
     return (
@@ -102,7 +106,7 @@ export const Filter = () => {
                 size="large"
                 variant="blue"
                 ariaLabel="Apply filters"
-                onClick={() => dispatch(applyFilters())}>Apply filters</MainButton>
+                onClick={handleApplyFilters}>Apply filters</MainButton>
         </div>
     )
 }

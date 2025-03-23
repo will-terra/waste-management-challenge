@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
 import { StoreProvider } from "./StoreProvider";
 import { ResponsiveHandler } from '@/components/utils/ResponsiveHandler';
-
+import { Nav } from "@/components/organisms/Nav";
 import "@/styles/globals.css";
-import { Nav } from "@/components/Nav";
 
 interface Props {
   readonly children: ReactNode;
