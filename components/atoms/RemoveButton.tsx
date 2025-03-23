@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { MainButton } from "./MainButton";
+import trashIcon from "@/public/trash.svg";
 
 interface RemoveButtonProps {
     onClick: () => void;
@@ -13,7 +15,7 @@ export const RemoveButton: React.FC<RemoveButtonProps> = ({ onClick }) => {
             size="small"
             onClick={onClick}
         >
-            X
+            <Image src={trashIcon} alt="remove" width={20} height={20} />
         </MainButton>
     )
 }
