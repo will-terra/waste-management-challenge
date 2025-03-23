@@ -15,7 +15,7 @@ export default function RootLayout({ children }: Props) {
         <body>
           <Nav />
           <ResponsiveHandler />
-          <div className="bg-darkGray min-h-screen"  >
+          <div className="bg-darkGray min-h-full md:min-h-screen"  >
             <main >{children}</main>
           </div>
         </body>
