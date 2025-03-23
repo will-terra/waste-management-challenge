@@ -9,7 +9,7 @@ export default function HomePage() {
   const isMobile = useAppSelector((state) => state.skips.isMobile);
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 w-full min-h-screen bg-black items-center justify-between">
+    <div className="flex flex-col md:flex-row gap-4 w-full min-h-screen bg-darkGray items-center justify-between">
       {isMobile ? <MobileFilter /> : <Filter />}
       <ProductGrid />
     </div>);
