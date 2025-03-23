@@ -4,12 +4,12 @@ import { Skip } from '@/types/types'
 
 export const ProductCard = (product: Skip) => {
     return (
-        <div className=" flex flex-col bg-white p-4 rounded-md shadow-md">
+        <div className="rounded-lg border-2 p-4 md:p-6 border-lightGray hover:border-lightBlue/50 bg-secondaryDarkGray text-white">
             <Image
                 priority
                 src={skipImage}
                 alt="skip"
-                width={300}
+                width={250}
                 height={200}
                 style={{
                     width: '100%',
