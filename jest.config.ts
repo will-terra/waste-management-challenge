@@ -10,9 +10,13 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   moduleNameMapper: {
     '^@/components/(.*)$': '<rootDir>/components/$1',
+    '^@/lib/(.*)$': '<rootDir>/lib/$1',
+    '^@/assets/(.*)$': '<rootDir>/assets/$1',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
   },
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
+    "^.+\\.svg$": "<rootDir>/svgTransform.ts"
+
   }
 };
