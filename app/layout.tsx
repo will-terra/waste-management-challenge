@@ -8,7 +8,7 @@ import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Choose your Skip",
-  description: "Dummy page for Skip management",
+  description: "Dummy page for Skip selection",
 };
 
 interface RootLayoutProps {
