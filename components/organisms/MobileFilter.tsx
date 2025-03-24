@@ -1,7 +1,7 @@
 import { Accordion } from "@base-ui-components/react"
 import { MainButton } from "../atoms/MainButton"
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
-import { applyFilters, handleBooleanFilter, handleNumericFilter } from "@/lib/features/skips/skipsSlice"
+import { applyFilters, handleBooleanFilter, handleNumericFilter, resetFilters } from "@/lib/features/skips/skipsSlice"
 import { RangeSlider } from "../molecules/RangeSlider"
 import { NumericFilter } from "../molecules/NumericFilter"
 import { RadioItem } from "../atoms/RadioItem"
@@ -56,7 +56,7 @@ export const MobileFilter = (props: Props) => {
                 </Accordion.Header>
 
                 <Accordion.Panel className="bg-lightGray p-4 m-2 rounded-md">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col ml-4">
                         <>
                             <label className="text-2xl text-white font-bold"> By Price</label>
                             <RangeSlider />
@@ -121,12 +121,16 @@ export const MobileFilter = (props: Props) => {
                                 <RemoveButton onClick={() => onClick(SkipProperty.ALLOWED_ON_ROAD)} />
                             </BooleanFilter>
                         </>
-                        <MainButton
-                            className="mt-8 h-12 max-w-60"
-                            size="large"
-                            variant="blue"
-                            ariaLabel="Apply filters"
-                            onClick={handleApplyFilters}>Apply filters</MainButton> </div>
+                        <div className="flex justify-center gap-4 items-center mt-4 ">
+                            <MainButton
+                                className="max-w-60"
+                                size="large"
+                                variant="blue"
+                                ariaLabel="Apply filters"
+                                onClick={handleApplyFilters}>Apply filters</MainButton>
+                            <RemoveButton onClick={() => dispatch(resetFilters())} />
+                        </div>
+                    </div>
                 </Accordion.Panel>
             </Accordion.Item>
         </Accordion.Root>

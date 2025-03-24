@@ -1,6 +1,6 @@
 "use client"
 
-import { Filter } from "@/components/organisms/Filter";
+import { DesktopFilter } from "@/components/organisms/DesktopFilter";
 import { MobileFilter } from "@/components/organisms/MobileFilter";
 import { ProductGrid } from "@/components/organisms/ProductGrid";
 import { useAppSelector } from "@/lib/hooks";
@@ -10,7 +10,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col justify-start md:justify-center md:flex-row gap-4 w-full min-h-screen bg-black items-center">
-      {isMobile ? <MobileFilter /> : <Filter />}
+      {isMobile ? <MobileFilter /> : <DesktopFilter />}
       <ProductGrid />
     </div>);
 }

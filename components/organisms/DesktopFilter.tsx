@@ -1,20 +1,19 @@
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
 import { RadioItem } from "../atoms/RadioItem"
 import { RemoveButton } from "../atoms/RemoveButton"
-import { applyFilters, handleBooleanFilter, handleNumericFilter } from "@/lib/features/skips/skipsSlice"
+import { applyFilters, handleBooleanFilter, handleNumericFilter, resetFilters } from "@/lib/features/skips/skipsSlice"
 import { SkipProperty } from "@/types/types"
 import { MainButton } from "../atoms/MainButton"
 import { NumericFilter } from "../molecules/NumericFilter"
 import { BooleanFilter } from "../molecules/BooleanFilter"
 import { RangeSlider } from "../molecules/RangeSlider"
 
-export const Filter = () => {
+export const DesktopFilter = () => {
     const allowsHeavyWasteValue = useAppSelector((state) => state.skips.filters.boolean.allows_heavy_waste)
     const allowedOnRoadValue = useAppSelector((state) => state.skips.filters.boolean.allowed_on_road)
     const hirePeriodDaysValue = useAppSelector((state) => state.skips.filters.numeric.hire_period_days)
     const transportCostValue = useAppSelector((state) => state.skips.filters.numeric.transport_cost)
     const perTonneCostValue = useAppSelector((state) => state.skips.filters.numeric.per_tonne_cost)
-    const isMobile = useAppSelector((state) => state.skips.isMobile);
     const dispatch = useAppDispatch();
     const handleBooleanValueChange = (property: SkipProperty.ALLOWED_ON_ROAD | SkipProperty.ALLOWS_HEAVY_WASTE, value: boolean) => {
         dispatch(handleBooleanFilter({ property, value }))
@@ -34,9 +33,9 @@ export const Filter = () => {
     }
 
     return (
-        <div className={filterStyles}>
+        <div className={desktopFilterStyles}>
             <>
-                {!isMobile && <label className="text-4xl text-white font-bold mr-auto mb-4"> Filters:</label>}
+                <label className="text-4xl text-white font-bold mr-auto mb-4"> Filters:</label>
                 <label className="text-2xl text-white font-bold"> By Price</label>
                 <RangeSlider />
             </>
@@ -100,14 +99,18 @@ export const Filter = () => {
                     <RemoveButton onClick={() => onClick(SkipProperty.ALLOWED_ON_ROAD)} />
                 </BooleanFilter>
             </>
-            <MainButton
-                className="mt-8 h-12 max-w-60"
-                size="large"
-                variant="blue"
-                ariaLabel="Apply filters"
-                onClick={handleApplyFilters}>Apply filters</MainButton>
+            <div className="flex justify-center gap-4 items-center mt-4 ">
+
+                <MainButton
+                    className="mt-8 max-w-60"
+                    size="large"
+                    variant="blue"
+                    ariaLabel="Apply filters"
+                    onClick={handleApplyFilters}>Apply filters</MainButton>
+                <RemoveButton onClick={() => dispatch(resetFilters())} />
+            </div>
         </div>
     )
 }
 
-const filterStyles = "flex flex-col self-start items-center min-w-full md:min-w-[19rem] w-full md:w-[30vw] min-h-fit md:min-h-[90dvh] bg-secondaryDarkGray gap-4 px-2 md:px-8 pt-6 pb-12 mr-4 m-1 md:m-4 rounded-md"
+const desktopFilterStyles = "flex flex-col self-start items-center min-w-[19rem] w-[30vw] min-h-[90dvh] bg-secondaryDarkGray gap-4 px-8 pt-6 pb-12 mr-4 m-4 rounded-md"
