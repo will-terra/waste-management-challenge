@@ -13,6 +13,7 @@ export const RemoveButton: React.FC<RemoveButtonProps> = ({ onClick }) => {
             ariaLabel={`Remove filter`}
             variant="gray"
             size="small"
+            className="h-8"
             onClick={onClick}
         >
             <Image src={trashIcon} alt="remove" width={20} height={20} />

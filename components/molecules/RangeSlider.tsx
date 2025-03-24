@@ -14,7 +14,7 @@ export const RangeSlider = () => {
     }
 
     return (
-        <div className="w-9/10 md:w-40">
+        <div className="w-7/10 md:w-52">
             <Slider
                 getAriaLabel={() => 'Price range'}
                 value={rangeValues}

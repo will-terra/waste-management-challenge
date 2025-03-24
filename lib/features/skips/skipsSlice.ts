@@ -4,12 +4,12 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import { fetchSkips } from "./skipsApiSlice";
 
 interface skipsSliceState {
-    status: 'idle' | 'loading' | 'succeeded' | 'failed';
+    status: "idle" | "loading" | "succeeded" | "failed";
     error: string | undefined;
     skips: Skip[];
     filteredSkips: Skip[];
+    selectedSkip: Skip | null;
     isMobile: boolean;
-    isMenuOpen: boolean;
     filters: {
         boolean: {
             allowed_on_road: boolean | null;
@@ -31,8 +31,8 @@ export const skipsSlice = createAppSlice({
     initialState: {
         skips: [],
         filteredSkips: [],
-        isMobile: false,
-        isMenuOpen: false,
+        selectedSkip: null,
+        isMobile: true,
         filters: {
             boolean: {
                 allowed_on_road: null,
@@ -47,27 +47,33 @@ export const skipsSlice = createAppSlice({
                 price: [311, 944]
             }
         },
-        status: 'idle',
+        status: "idle",
         error: undefined,
     } as skipsSliceState,
     reducers: (create) => ({
-        handleBooleanFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['boolean'], value: boolean | null }>) => {
+        setIsMobile: create.reducer((state, action: PayloadAction<boolean>) => {
+            state.isMobile = action.payload;
+        }),
+        setSelectedSkip: create.reducer((state, action: PayloadAction<Skip | null>) => {
+            state.selectedSkip = action.payload;
+        }),
+        handleBooleanFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState["filters"]["boolean"], value: boolean | null }>) => {
             if (action.payload.property in state.filters.boolean) {
                 state.filters.boolean[action.payload.property] = action.payload.value;
             }
         }),
-        handleNumericFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['numeric'], value: number | null }>) => {
+        handleNumericFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState["filters"]["numeric"], value: number | null }>) => {
             if (action.payload.property in state.filters.numeric) {
                 state.filters.numeric[action.payload.property] = action.payload.value;
 
             }
-
         }),
-        handleRangeFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState['filters']['range'], value: number | [number, number] }>) => {
-            if (action.payload.property === 'price') {
+        handleRangeFilter: create.reducer((state, action: PayloadAction<{ property: keyof skipsSliceState["filters"]["range"], value: number | [number, number] }>) => {
+            if (action.payload.property === "price") {
                 state.filters.range.price = action.payload.value;
             }
         }),
+
         applyFilters: create.reducer((state) => {
             state.filteredSkips = state.skips.filter((skip) => {
                 const allowedOnRoadFilter = state.filters.boolean.allowed_on_road === null ||
@@ -88,28 +94,39 @@ export const skipsSlice = createAppSlice({
                 return allowedOnRoadFilter && heavyWasteFilter && hirePeriodFilter && transportCostFilter && perTonneCostFilter && priceFilter;
             });
         }),
-        setIsMobile: create.reducer((state, action: PayloadAction<boolean>) => {
-            state.isMobile = action.payload;
+        resetFilters: create.reducer((state) => {
+            state.filters = {
+                boolean: {
+                    allowed_on_road: null,
+                    allows_heavy_waste: null,
+                },
+                numeric: {
+                    hire_period_days: null,
+                    transport_cost: null,
+                    per_tonne_cost: null,
+                },
+                range: {
+                    price: [311, 944]
+                }
+            };
+            state.filteredSkips = state.skips;
         }),
-        setIsMenuOpen: create.reducer((state, action: PayloadAction<boolean>) => {
-            state.isMenuOpen = action.payload;
-        })
     }),
     extraReducers: (builder) => {
         builder
             .addCase(fetchSkips.pending, (state) => {
-                state.status = 'loading';
+                state.status = "loading";
             })
             .addCase(fetchSkips.fulfilled, (state, action) => {
-                state.status = 'succeeded';
+                state.status = "succeeded";
                 state.skips = action.payload;
                 state.filteredSkips = action.payload;
             })
             .addCase(fetchSkips.rejected, (state, action) => {
-                state.status = 'failed';
+                state.status = "failed";
                 state.error = action.error.message;
             });
     }
 });
 
-export const { handleBooleanFilter, handleNumericFilter, handleRangeFilter, applyFilters, setIsMobile, setIsMenuOpen } = skipsSlice.actions;
+export const { handleBooleanFilter, handleNumericFilter, handleRangeFilter, applyFilters, setIsMobile, setSelectedSkip, resetFilters } = skipsSlice.actions;

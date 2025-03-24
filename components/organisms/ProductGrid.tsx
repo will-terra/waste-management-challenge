@@ -1,9 +1,9 @@
 "use client"
 import { useMemo } from "react";
-import { useAppSelector } from "@/lib/hooks";
 import { Message } from "../atoms/Message";
 import { ProductCard } from "../molecules/ProductCard";
-import { MainHeader } from "../molecules/MainHeader";
+import { MainHeader } from "../atoms/MainHeader";
+import { useAppSelector } from "@/lib/hooks";
 
 export const ProductGrid = () => {
     const isLoading = useAppSelector((state) => state.skips.status === 'loading');
