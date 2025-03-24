@@ -113,3 +113,4 @@ export const filterSlice = createAppSlice({
 });
 
 export const { handleBooleanFilter, handleNumericFilter, handleRangeFilter, resetFilters } = filterSlice.actions;
+export default filterSlice.reducer;

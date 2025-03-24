@@ -51,3 +51,4 @@ export const skipsSlice = createAppSlice({
 });
 
 export const { setIsMobile, setSelectedSkip, setFilteredSkips } = skipsSlice.actions;
+export default skipsSlice.reducer;

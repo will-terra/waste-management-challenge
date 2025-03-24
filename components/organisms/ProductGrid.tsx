@@ -15,7 +15,7 @@ export const ProductGrid = () => {
 
         if (isError) {
             return <Message
-                title="Error on fetch skips :("
+                title="Error on fetching skips :("
                 subtitle="Try reloading the page"
             />;
         }

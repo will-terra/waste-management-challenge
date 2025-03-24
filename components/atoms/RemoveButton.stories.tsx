@@ -11,6 +11,12 @@ const meta: Meta<typeof RemoveButton> = {
                 component: 'A main button with a trash icon, used to remove filters.'
             }
         },
+        backgrounds: {
+            default: 'dark',
+            values: [
+                { name: 'dark', value: '#121212' },
+            ],
+        },
     },
     tags: ['autodocs'],
     argTypes: {
