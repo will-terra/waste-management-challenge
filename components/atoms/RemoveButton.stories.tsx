@@ -1,0 +1,28 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { RemoveButton } from './RemoveButton';
+
+const meta: Meta<typeof RemoveButton> = {
+    title: 'Atoms/RemoveButton',
+    component: RemoveButton,
+    parameters: {
+        layout: 'centered',
+        docs: {
+            description: {
+                component: 'A main button with a trash icon, used to remove filters.'
+            }
+        },
+    },
+    tags: ['autodocs'],
+    argTypes: {
+        onClick: { action: 'clicked' }
+    },
+};
+
+export default meta;
+type Story = StoryObj<typeof RemoveButton>;
+
+export const Default: Story = {
+    args: {
+        onClick: () => console.log('Remove button clicked'),
+    },
+};

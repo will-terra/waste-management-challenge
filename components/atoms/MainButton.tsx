@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface MainButtonProps {
     children: React.ReactNode;
     ariaLabel: string;
