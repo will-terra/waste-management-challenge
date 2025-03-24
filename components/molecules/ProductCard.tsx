@@ -1,7 +1,7 @@
 import Image from "next/image"
-import skipImage from "../../public/skip.png"
-import heavyIcon from "../../public/heavy.svg"
-import roadIcon from "../../public/road.svg"
+import skipImage from "../../assets/skip.png"
+import heavyIcon from "../../assets/heavy.svg"
+import roadIcon from "../../assets/road.svg"
 import AddIcon from "@mui/icons-material/Add";
 import { Skip } from "@/types/types"
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { MainButton } from "./MainButton";
-import trashIcon from "@/public/trash.svg";
+import trashIcon from "@/assets/trash.svg";
 
 interface RemoveButtonProps {
     onClick: () => void;

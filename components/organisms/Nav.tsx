@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
-import pinIcon from "@/public/pin.svg";
-import trashIcon from "@/public/trash.svg";
-import truckIcon from "@/public/truck.svg";
-import shieldIcon from "@/public/shield.svg";
-import calendarIcon from "@/public/calendar.svg";
-import cardIcon from "@/public/card.svg";
+import pinIcon from "@/assets/pin.svg";
+import trashIcon from "@/assets/trash.svg";
+import truckIcon from "@/assets/truck.svg";
+import shieldIcon from "@/assets/shield.svg";
+import calendarIcon from "@/assets/calendar.svg";
+import cardIcon from "@/assets/card.svg";
 import { useAppSelector } from "@/lib/hooks";
 
 export const Nav = () => {
