@@ -96,7 +96,7 @@ export const skipsSlice = createAppSlice({
         setIsMenuOpen: create.reducer((state, action: PayloadAction<boolean>) => {
             state.isMenuOpen = action.payload;
         }),
-        setSelectedSkip: create.reducer((state, action: PayloadAction<Skip>) => {
+        setSelectedSkip: create.reducer((state, action: PayloadAction<Skip | null>) => {
             state.selectedSkip = action.payload;
         }),
     }),
