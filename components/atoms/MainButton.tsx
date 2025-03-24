@@ -19,7 +19,7 @@ export const MainButton: React.FC<MainButtonProps> = ({
 }) => {
     const options = `${className} flex justify-center items-center cursor-pointer hover:bg-lightBlue/60 ${size === "small"
         ? "text-sm py-1 px-4 w-fit max-w-[7rem] "
-        : "text-lg py-2  w-full"
+        : "text-lg py-2 px-2  w-full"
         } ${variant === "gray" ? " bg-lightGray " : "bg-lightBlue"
         } text-white  rounded-md border border-secondaryDarkGray`;
 
