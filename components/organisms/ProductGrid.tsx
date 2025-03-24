@@ -1,36 +1,47 @@
 "use client"
-import { useAppSelector } from "@/lib/hooks";
+import { useMemo } from "react";
 import { ProductCard } from "../molecules/ProductCard";
+import { Message } from "../atoms/Message";
+import { MainHeader } from "../atoms/MainHeader";
+import { useAppSelector } from "@/lib/hooks";
 
-type Props = {}
-
-export const ProductGrid = (props: Props) => {
+export const ProductGrid = () => {
     const isLoading = useAppSelector((state) => state.skips.status === 'loading');
     const isError = useAppSelector((state) => state.skips.status === 'failed');
     const skips = useAppSelector((state) => state.skips.filteredSkips);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
+    const content = useMemo(() => {
+        if (isLoading) return <></>;
 
-    if (isError) {
-        return <div>Error on fetch</div>;
-    }
+        if (isError) {
+            return <Message
+                title="Error on fetch skips :("
+                subtitle="Try reloading the page"
+            />;
+        }
 
-    if (!skips || skips.length === 0) {
-        return <div>No skips found</div>;
-    }
+        if (!skips?.length) {
+            return <Message
+                title="Ooops, no skips found :("
+                subtitle="Try using less filters"
+            />;
+        }
 
-    return (
-        <div className="flex flex-col h-full w-full self-start mb-14 md:mb-24 mt-2 md:mt-4 pt-2 md:pt-4">
-            <p className="text-2xl md:text-4xl font-bold text-white text-center self-center mb-2 md:mb-4">Choose your Skip</p>
-            <p className="text-gray-400 text-lg md:text-2xl text-center mb-8">Select the skip size that best suits your needs</p>
+        return (
             <div className="flex flex-wrap gap-12 justify-center">
                 {skips.map((item) => (
                     <ProductCard key={item.id} {...item} />
                 ))}
             </div>
+        );
+    }, [isLoading, isError, skips]);
+
+    return (
+        <div className={containerStyles}>
+            <MainHeader />
+            {content}
         </div>
     );
 }
 
+const containerStyles = "flex flex-col h-full w-full self-start mb-8 mt-2 md:mt-4 pt-2 md:pt-4 text-white";
