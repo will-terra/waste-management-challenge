@@ -15,7 +15,6 @@ const mockSkips: Skip[] = [
         "per_tonne_cost": null,
         "price_before_vat": 311,
         "vat": 20,
-        "postcode": "NR32",
         "allowed_on_road": true,
         "allows_heavy_waste": true
     },
@@ -27,7 +26,6 @@ const mockSkips: Skip[] = [
         "per_tonne_cost": null,
         "price_before_vat": 342,
         "vat": 20,
-        "postcode": "NR32",
         "allowed_on_road": true,
         "allows_heavy_waste": true
     },
@@ -39,7 +37,6 @@ const mockSkips: Skip[] = [
         "per_tonne_cost": null,
         "price_before_vat": 420,
         "vat": 20,
-        "postcode": "NR32",
         "allowed_on_road": true,
         "allows_heavy_waste": true
     },
@@ -51,7 +48,6 @@ const mockSkips: Skip[] = [
         "per_tonne_cost": null,
         "price_before_vat": 448,
         "vat": 20,
-        "postcode": "NR32",
         "allowed_on_road": false,
         "allows_heavy_waste": false
     },

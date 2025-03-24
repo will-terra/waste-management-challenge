@@ -7,7 +7,6 @@ export interface Skip {
     per_tonne_cost: number | null,
     price_before_vat: number | null,
     vat: number,
-    postcode: string,
     allowed_on_road: boolean,
     allows_heavy_waste: boolean
 }
