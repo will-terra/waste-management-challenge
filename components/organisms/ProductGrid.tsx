@@ -22,7 +22,7 @@ export const ProductGrid = (props: Props) => {
     }
 
     return (
-        <div className="flex flex-col h-full w-full self-start mb-8 mt-2 md:mt-4 pt-2 md:pt-4">
+        <div className="flex flex-col h-full w-full self-start mb-14 md:mb-24 mt-2 md:mt-4 pt-2 md:pt-4">
             <p className="text-2xl md:text-4xl font-bold text-white text-center self-center mb-2 md:mb-4">Choose your Skip</p>
             <p className="text-gray-400 text-lg md:text-2xl text-center mb-8">Select the skip size that best suits your needs</p>
             <div className="flex flex-wrap gap-12 justify-center">
