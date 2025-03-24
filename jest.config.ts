@@ -12,11 +12,12 @@ module.exports = {
     '^@/components/(.*)$': '<rootDir>/components/$1',
     '^@/lib/(.*)$': '<rootDir>/lib/$1',
     '^@/assets/(.*)$': '<rootDir>/assets/$1',
+    '^@/types/(.*)$': '<rootDir>/types/$1',
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
   },
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
-    "^.+\\.svg$": "<rootDir>/svgTransform.ts"
+    "^.+\\.(svg|png)$": "<rootDir>/svgTransform.ts"
 
   }
 };
