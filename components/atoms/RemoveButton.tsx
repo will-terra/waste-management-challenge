@@ -6,7 +6,7 @@ interface RemoveButtonProps {
     onClick: () => void;
 }
 
-export const RemoveButton: React.FC<RemoveButtonProps> = ({ onClick }) => {
+export const RemoveButton = ({ onClick }: RemoveButtonProps) => {
 
     return (
         <MainButton

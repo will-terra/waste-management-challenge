@@ -2,8 +2,9 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit";
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import { skipsSlice } from "./features/skips/skipsSlice";
 import { fetchSkips } from "./features/skips/skipsApiSlice";
+import { filterSlice } from "./features/filter/filterSlice";
 
-const rootReducer = combineSlices(skipsSlice);
+const rootReducer = combineSlices(skipsSlice, filterSlice);
 export type RootState = ReturnType<typeof rootReducer>;
 
 export const makeStore = () => {
@@ -13,8 +14,6 @@ export const makeStore = () => {
   store.dispatch(fetchSkips());
   return store;
 };
-
-
 
 export type AppStore = ReturnType<typeof makeStore>;
 export type AppDispatch = AppStore["dispatch"];

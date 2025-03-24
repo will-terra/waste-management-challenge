@@ -8,18 +8,18 @@ import { NumericFilter } from "../molecules/NumericFilter"
 import { BooleanFilter } from "../molecules/BooleanFilter"
 import { SkipProperty } from "@/types/types"
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
-import { applyFilters, handleBooleanFilter, handleNumericFilter, resetFilters } from "@/lib/features/skips/skipsSlice"
+import { applyFiltersThunk, handleBooleanFilter, handleNumericFilter, resetFilters } from "@/lib/features/filter/filterSlice"
 
 interface MobileProps {
     isMobile: boolean;
 }
 
 export const Filter = ({ isMobile }: MobileProps) => {
-    const allowsHeavyWasteValue = useAppSelector((state) => state.skips.filters.boolean.allows_heavy_waste)
-    const allowedOnRoadValue = useAppSelector((state) => state.skips.filters.boolean.allowed_on_road)
-    const hirePeriodDaysValue = useAppSelector((state) => state.skips.filters.numeric.hire_period_days)
-    const transportCostValue = useAppSelector((state) => state.skips.filters.numeric.transport_cost)
-    const perTonneCostValue = useAppSelector((state) => state.skips.filters.numeric.per_tonne_cost)
+    const allowsHeavyWasteValue = useAppSelector((state) => state.filter.boolean.allows_heavy_waste)
+    const allowedOnRoadValue = useAppSelector((state) => state.filter.boolean.allowed_on_road)
+    const hirePeriodDaysValue = useAppSelector((state) => state.filter.numeric.hire_period_days)
+    const transportCostValue = useAppSelector((state) => state.filter.numeric.transport_cost)
+    const perTonneCostValue = useAppSelector((state) => state.filter.numeric.per_tonne_cost)
     const dispatch = useAppDispatch();
     const accordionTriggerRef = useRef<HTMLButtonElement>(null);
 
@@ -40,14 +40,14 @@ export const Filter = ({ isMobile }: MobileProps) => {
     }
 
     const handleApplyFilters = () => {
-        dispatch(applyFilters())
+        dispatch(applyFiltersThunk())
         if (isMobile) {
             accordionTriggerRef.current?.click();
         }
     }
 
     const filterContent = (
-        <>
+        <div className="flex flex-col gap-2">
             <label className={`${isMobile ? 'text-2xl' : 'text-4xl'} text-white font-bold ${!isMobile && 'mr-auto mb-4'}`}>
                 {!isMobile && 'Filters:'}
             </label>
@@ -111,7 +111,7 @@ export const Filter = ({ isMobile }: MobileProps) => {
 
             <div className="flex justify-center gap-4 items-center mt-4">
                 <MainButton
-                    className={`${isMobile ? '' : 'mt-8'} max-w-60`}
+                    className="max-w-60"
                     size="large"
                     variant="blue"
                     ariaLabel="Apply filters"
@@ -120,7 +120,7 @@ export const Filter = ({ isMobile }: MobileProps) => {
                 </MainButton>
                 <RemoveButton onClick={() => dispatch(resetFilters())} />
             </div>
-        </>
+        </div>
     );
 
     if (isMobile) {

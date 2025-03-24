@@ -1,6 +1,6 @@
 import { useAppDispatch } from "@/lib/hooks";
 import { MainButton } from "./MainButton";
-import { resetFilters } from "@/lib/features/skips/skipsSlice";
+import { resetFiltersThunk } from "@/lib/features/filter/filterSlice";
 
 interface MessageProps {
     title: string;
@@ -10,7 +10,7 @@ interface MessageProps {
 export const Message = ({ title, subtitle }: MessageProps) => {
     const dispatch = useAppDispatch();
     const handleOnClick = () => {
-        dispatch(resetFilters());
+        dispatch(resetFiltersThunk());
     }
 
     return (

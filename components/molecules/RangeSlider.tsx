@@ -1,9 +1,9 @@
 import Slider from '@mui/material/Slider';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
-import { handleRangeFilter } from '@/lib/features/skips/skipsSlice';
+import { handleRangeFilter } from '@/lib/features/filter/filterSlice';
 
 export const RangeSlider = () => {
-    const rangeValues = useAppSelector((state) => state.skips.filters.range.price)
+    const rangeValues = useAppSelector((state) => state.filter.range.price)
     const dispatch = useAppDispatch();
     const handleChange = (event: Event, value: number | number[], activeThumb: number) => {
         const newValue = value as [number, number];
@@ -14,7 +14,7 @@ export const RangeSlider = () => {
     }
 
     return (
-        <div className="w-7/10 md:w-52">
+        <div className="w-7/10 md:w-52 h-10">
             <Slider
                 getAriaLabel={() => 'Price range'}
                 value={rangeValues}
