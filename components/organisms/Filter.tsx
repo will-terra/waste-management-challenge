@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
 import { RadioItem } from "../atoms/RadioItem"
 import { RemoveButton } from "../atoms/RemoveButton"
-import { applyFilters, handleBooleanFilter, handleNumericFilter, setIsMenuOpen } from "@/lib/features/skips/skipsSlice"
+import { applyFilters, handleBooleanFilter, handleNumericFilter } from "@/lib/features/skips/skipsSlice"
 import { SkipProperty } from "@/types/types"
 import { MainButton } from "../atoms/MainButton"
 import { NumericFilter } from "../molecules/NumericFilter"
@@ -31,7 +31,6 @@ export const Filter = () => {
     }
     const handleApplyFilters = () => {
         dispatch(applyFilters())
-        dispatch(setIsMenuOpen(false))
     }
 
     return (

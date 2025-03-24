@@ -1,13 +1,14 @@
 import { Accordion } from "@base-ui-components/react"
 import { MainButton } from "../atoms/MainButton"
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
-import { applyFilters, handleBooleanFilter, handleNumericFilter, setIsMenuOpen } from "@/lib/features/skips/skipsSlice"
+import { applyFilters, handleBooleanFilter, handleNumericFilter } from "@/lib/features/skips/skipsSlice"
 import { RangeSlider } from "../molecules/RangeSlider"
 import { NumericFilter } from "../molecules/NumericFilter"
 import { RadioItem } from "../atoms/RadioItem"
 import { RemoveButton } from "../atoms/RemoveButton"
 import { BooleanFilter } from "../molecules/BooleanFilter"
 import { SkipProperty } from "@/types/types"
+import { useRef } from "react"
 
 type Props = {}
 
@@ -18,6 +19,8 @@ export const MobileFilter = (props: Props) => {
     const transportCostValue = useAppSelector((state) => state.skips.filters.numeric.transport_cost)
     const perTonneCostValue = useAppSelector((state) => state.skips.filters.numeric.per_tonne_cost)
     const dispatch = useAppDispatch();
+    const accordionTriggerRef = useRef<HTMLButtonElement>(null);
+
     const handleBooleanValueChange = (property: SkipProperty.ALLOWED_ON_ROAD | SkipProperty.ALLOWS_HEAVY_WASTE, value: boolean) => {
         dispatch(handleBooleanFilter({ property, value }))
     }
@@ -33,14 +36,14 @@ export const MobileFilter = (props: Props) => {
     }
     const handleApplyFilters = () => {
         dispatch(applyFilters())
-        dispatch(setIsMenuOpen(false))
+        accordionTriggerRef.current?.click();
     }
 
     return (
         <Accordion.Root className="flex justify-center w-full self-start">
             <Accordion.Item className="w-full">
                 <Accordion.Header className="flex justify-center mx-4">
-                    <Accordion.Trigger className="mt-8 w-9/10">
+                    <Accordion.Trigger ref={accordionTriggerRef} className="mt-8 w-9/10">
                         <MainButton
                             ariaLabel="Open filters menu"
                             size="large"

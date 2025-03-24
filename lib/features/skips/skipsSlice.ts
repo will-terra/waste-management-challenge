@@ -10,7 +10,6 @@ interface skipsSliceState {
     filteredSkips: Skip[];
     selectedSkip: Skip | null;
     isMobile: boolean;
-    isMenuOpen: boolean;
     filters: {
         boolean: {
             allowed_on_road: boolean | null;
@@ -34,7 +33,6 @@ export const skipsSlice = createAppSlice({
         filteredSkips: [],
         selectedSkip: null,
         isMobile: true,
-        isMenuOpen: false,
         filters: {
             boolean: {
                 allowed_on_road: null,
@@ -55,9 +53,6 @@ export const skipsSlice = createAppSlice({
     reducers: (create) => ({
         setIsMobile: create.reducer((state, action: PayloadAction<boolean>) => {
             state.isMobile = action.payload;
-        }),
-        setIsMenuOpen: create.reducer((state, action: PayloadAction<boolean>) => {
-            state.isMenuOpen = action.payload;
         }),
         setSelectedSkip: create.reducer((state, action: PayloadAction<Skip | null>) => {
             state.selectedSkip = action.payload;
@@ -134,4 +129,4 @@ export const skipsSlice = createAppSlice({
     }
 });
 
-export const { handleBooleanFilter, handleNumericFilter, handleRangeFilter, applyFilters, setIsMobile, setIsMenuOpen, setSelectedSkip, resetFilters } = skipsSlice.actions;
+export const { handleBooleanFilter, handleNumericFilter, handleRangeFilter, applyFilters, setIsMobile, setSelectedSkip, resetFilters } = skipsSlice.actions;
