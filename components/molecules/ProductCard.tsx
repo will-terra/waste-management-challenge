@@ -27,7 +27,7 @@ export const ProductCard = (product: Skip) => {
                     height: "auto"
                 }}
             />
-            <p className="text-2xl font-bold"> {product.size} Yard Skip</p>
+            <p className="text-white text-2xl font-bold"> {product.size} Yard Skip</p>
             <div className="flex justify-between gap-2 min-h-12 items-center">
                 <p className="text-4xl font-black text-lightBlue">£{price_before_vat}<span className="text-sm text-gray-400 ">per week</span></p>
                 <div className="flex w-fit gap-1 bg-gray-400 rounded-md items-center">
