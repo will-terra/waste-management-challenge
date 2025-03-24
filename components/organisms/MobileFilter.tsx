@@ -1,8 +1,8 @@
-import { Menu } from '@base-ui-components/react'
-import { MainButton } from '../atoms/MainButton'
-import { Filter } from './Filter'
-import { useAppDispatch, useAppSelector } from '@/lib/hooks'
-import { setIsMenuOpen } from '@/lib/features/skips/skipsSlice'
+import { Menu } from "@base-ui-components/react"
+import { MainButton } from "../atoms/MainButton"
+import { Filter } from "./Filter"
+import { useAppDispatch, useAppSelector } from "@/lib/hooks"
+import { setIsMenuOpen } from "@/lib/features/skips/skipsSlice"
 
 type Props = {}
 
@@ -20,7 +20,7 @@ export const MobileFilter = (props: Props) => {
                     size="large"
                     variant="blue"
                 >
-                    Filters {isMenuOpen ? '▲' : '▼'}
+                    Filters {isMenuOpen ? "▲" : "▼"}
                 </MainButton>
             </Menu.Trigger>
             <Menu.Portal>
