@@ -3,7 +3,7 @@ import { createAppSlice } from "@/lib/createAppSlice";
 import { PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "@/lib/store";
 
-interface filterSliceState {
+export interface FilterSliceState {
     boolean: {
         allowed_on_road: boolean | null;
         allows_heavy_waste: boolean | null;
@@ -78,19 +78,19 @@ export const filterSlice = createAppSlice({
         range: {
             price: [311, 944]
         }
-    } as filterSliceState,
+    } as FilterSliceState,
     reducers: (create) => ({
-        handleBooleanFilter: create.reducer((state, action: PayloadAction<{ property: keyof filterSliceState["boolean"], value: boolean | null }>) => {
+        handleBooleanFilter: create.reducer((state, action: PayloadAction<{ property: keyof FilterSliceState["boolean"], value: boolean | null }>) => {
             if (action.payload.property in state.boolean) {
                 state.boolean[action.payload.property] = action.payload.value;
             }
         }),
-        handleNumericFilter: create.reducer((state, action: PayloadAction<{ property: keyof filterSliceState["numeric"], value: number | null }>) => {
+        handleNumericFilter: create.reducer((state, action: PayloadAction<{ property: keyof FilterSliceState["numeric"], value: number | null }>) => {
             if (action.payload.property in state.numeric) {
                 state.numeric[action.payload.property] = action.payload.value;
             }
         }),
-        handleRangeFilter: create.reducer((state, action: PayloadAction<{ property: keyof filterSliceState["range"], value: number | [number, number] }>) => {
+        handleRangeFilter: create.reducer((state, action: PayloadAction<{ property: keyof FilterSliceState["range"], value: number | [number, number] }>) => {
             if (action.payload.property === "price") {
                 state.range.price = action.payload.value;
             }

@@ -3,7 +3,7 @@ import { createAppSlice } from "@/lib/createAppSlice";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { fetchSkips } from "./skipsApiSlice";
 
-interface skipsSliceState {
+export interface SkipsSliceState {
     status: "idle" | "loading" | "succeeded" | "failed";
     error: string | undefined;
     skips: Skip[];
@@ -21,7 +21,7 @@ export const skipsSlice = createAppSlice({
         filteredSkips: [],
         selectedSkip: null,
         isMobile: true,
-    } as skipsSliceState,
+    } as SkipsSliceState,
     reducers: (create) => ({
         setIsMobile: create.reducer((state, action: PayloadAction<boolean>) => {
             state.isMobile = action.payload;
