@@ -1,15 +1,21 @@
+import { Metadata } from "next";
 import type { ReactNode } from "react";
 import { StoreProvider } from "./StoreProvider";
 import { ResponsiveHandler } from '@/components/utils/ResponsiveHandler';
 import { Nav } from "@/components/organisms/Nav";
-import "@/styles/globals.css";
 import { Footer } from "@/components/organisms/Footer";
+import "@/styles/globals.css";
 
-interface Props {
+export const metadata: Metadata = {
+  title: "Choose your Skip",
+  description: "Dummy page for Skip management",
+};
+
+interface RootLayoutProps {
   readonly children: ReactNode;
 }
 
-export default function RootLayout({ children }: Props) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <StoreProvider>
       <html lang="en">

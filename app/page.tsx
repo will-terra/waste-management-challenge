@@ -1,5 +1,4 @@
 "use client"
-
 import { Filter } from "@/components/organisms/Filter";
 import { ProductGrid } from "@/components/organisms/ProductGrid";
 import { useAppSelector } from "@/lib/hooks";
