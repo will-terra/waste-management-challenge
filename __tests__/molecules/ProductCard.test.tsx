@@ -4,6 +4,17 @@ import { Skip } from '@/types/types';
 import { Provider } from 'react-redux';
 import { store } from '@/lib/store';
 
+jest.mock('next/image', () => ({
+    __esModule: true,
+    default: (props: any) => {
+        // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
+        return <img
+            src="/test-image.jpg"
+            {...props}
+        />
+    },
+}));
+
 const mockProduct: Skip = {
     id: 1,
     size: 10,

@@ -5,6 +5,17 @@ import { configureStore } from "@reduxjs/toolkit";
 import skipsReducer from "@/lib/features/skips/skipsSlice";
 import filterReducer from "@/lib/features/filter/filterSlice";
 
+jest.mock('next/image', () => ({
+    __esModule: true,
+    default: (props: any) => {
+        // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
+        return <img
+            src="/test-image.jpg"
+            {...props}
+        />
+    },
+}));
+
 const initialState = {
     skips: {
         skips: [],
