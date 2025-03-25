@@ -68,7 +68,7 @@ npm install
 npm run dev
 ```
 
-# Testing
+## Testing
 ### Unit tests
 ```bash
 npm run test
@@ -85,17 +85,18 @@ npm run cy:open
 npm run storybook
 ```
 
-🧠 Design Decisions
-Next.js App Router
+# 🧠 Design Decisions
+###Next.js App Router
 Chosen for hybrid static & server rendering to optimize SEO and initial load performance.
 
-Redux Toolkit
+###Redux Toolkit
 Implemented with RTK Query for centralized API state management and automatic caching.
 
-Tailwind + MUI Synergy
+###Tailwind + MUI Synergy
 Combines MUI's design system with Tailwind's utility-first flexibility for rapid iteration.
 
-Testing Pyramid
+###Testing Pyramid
+
 Comprehensive coverage strategy:
 
 95%+ Unit test coverage (Jest)
@@ -104,7 +105,7 @@ Critical path E2E tests (Cypress)
 
 Visual regression via Storybook
 
-📈 Performance Metrics
+##📈 Performance Metrics
 Lighthouse Scores (Desktop):
 
 Performance: 98
