@@ -17,8 +17,8 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <StoreProvider>
-      <html lang="en">
+    <html lang="en">
+      <StoreProvider>
         <body>
           <Nav />
           <ResponsiveHandler />
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </div>
           <Footer />
         </body>
-      </html>
-    </StoreProvider>
+      </StoreProvider>
+    </html>
   );
 }

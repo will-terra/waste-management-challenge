@@ -1,3 +1,4 @@
+"use client"
 import { useRef } from "react"
 import { Accordion } from "@base-ui-components/react"
 import { MainButton } from "../atoms/MainButton"
