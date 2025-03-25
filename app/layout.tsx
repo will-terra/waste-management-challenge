@@ -22,6 +22,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
       <StoreProvider>
         <body>
+          <head>
+            <link rel="preconnect" href="https://app.wewantwaste.co.uk" />
+            <link rel="preconnect" href="https://va.vercel-scripts.com" />
+          </head>
           <Nav />
           <ResponsiveHandler />
           <div className="bg-darkGray min-h-screen"  >
