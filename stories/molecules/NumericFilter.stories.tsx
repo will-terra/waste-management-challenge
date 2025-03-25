@@ -54,7 +54,6 @@ export const HirePeriodDays: Story = {
     },
     render: (args) => (
         <div className="bg-secondaryDarkGray p-4 rounded-md">
-            <label className="text-2xl text-white font-bold mb-2">Hire period (days)</label>
             <NumericFilter {...args}>
                 <RadioItem value={7} checked={args.selectedValue === 7} label="7" />
                 <RadioItem value={14} checked={args.selectedValue === 14} label="14" />
@@ -73,7 +72,6 @@ export const TransportCost: Story = {
     },
     render: (args) => (
         <div className="bg-secondaryDarkGray p-4 rounded-md">
-            <label className="text-2xl text-white font-bold mb-2">Transport Cost</label>
             <NumericFilter {...args}>
                 <RadioItem value={0} checked={args.selectedValue === 0} label="Free" />
                 <RadioItem value={236} checked={args.selectedValue === 236} label="236" />
@@ -92,7 +90,6 @@ export const PerTonneCost: Story = {
     },
     render: (args) => (
         <div className="bg-secondaryDarkGray p-4 rounded-md">
-            <label className="text-2xl text-white font-bold mb-2">Cost per tonne</label>
             <NumericFilter {...args}>
                 <RadioItem value={0} checked={args.selectedValue === 0} label="Free" />
                 <RadioItem value={236} checked={args.selectedValue === 236} label="236" />
@@ -111,7 +108,6 @@ export const MultipleOptions: Story = {
     },
     render: (args) => (
         <div className="bg-secondaryDarkGray p-4 rounded-md">
-            <label className="text-2xl text-white font-bold mb-2">Hire period (days)</label>
             <NumericFilter {...args}>
                 <RadioItem value={7} checked={args.selectedValue === 7} label="7" />
                 <RadioItem value={14} checked={args.selectedValue === 14} label="14" />

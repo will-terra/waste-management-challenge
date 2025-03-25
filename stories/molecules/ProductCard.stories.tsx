@@ -30,7 +30,7 @@ const meta: Meta<typeof ProductCard> = {
         backgrounds: {
             default: 'dark',
             values: [
-                { name: 'dark', value: '#2A2A2A' },
+                { name: 'dark', value: '#1C1C1C' },
             ],
         }
     },

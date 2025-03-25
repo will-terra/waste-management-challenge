@@ -54,7 +54,6 @@ export const AllowedOnRoad: Story = {
     },
     render: (args) => (
         <div className="bg-secondaryDarkGray p-4 rounded-md">
-            <label className="text-2xl text-white font-bold"> Allowed On Road?</label>
             <BooleanFilter {...args}>
                 <RadioItem value={true} checked={args.selectedValue === true} label="Yes" />
                 <RadioItem value={false} checked={args.selectedValue === false} label="No" />
@@ -73,7 +72,6 @@ export const AllowsHeavyWaste: Story = {
     },
     render: (args) => (
         <div className="bg-secondaryDarkGray p-4 rounded-md gap-2">
-            <label className="text-2xl text-white font-bold"> Allows heavy waste?</label>
             <BooleanFilter {...args}>
                 <RadioItem value={true} checked={args.selectedValue === true} label="Yes" />
                 <RadioItem value={false} checked={args.selectedValue === false} label="No" />
