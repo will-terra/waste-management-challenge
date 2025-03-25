@@ -1,4 +1,4 @@
-import '../styles/globals.css'; // Ajuste o caminho se necessário para o seu arquivo CSS do Tailwind
+import '../styles/globals.css';
 import type { Preview } from '@storybook/react'
 
 const preview: Preview = {
