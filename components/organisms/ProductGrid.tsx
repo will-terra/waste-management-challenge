@@ -44,4 +44,4 @@ export const ProductGrid = () => {
     );
 }
 
-const containerStyles = "flex flex-col h-full w-full self-start mb-8 mt-2 md:mt-4 pt-2 md:pt-4 text-white";
+const containerStyles = "flex flex-col h-full w-full self-start mb-44 md:mb-36 mt-2 md:mt-4 pt-2 md:pt-4 text-white";
