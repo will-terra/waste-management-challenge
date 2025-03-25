@@ -16,7 +16,9 @@ export default function HomePage() {
   if (!isClient) {
     return <div className="flex flex-col justify-start md:flex-row gap-4 w-full min-h-screen bg-black items-center">
       <Filter isMobile={false} />
-      <MainHeader />
+      <div className="flex flex-col justify-center self-start w-full mt-8">
+        <MainHeader />
+      </div>
     </div>
   }
 

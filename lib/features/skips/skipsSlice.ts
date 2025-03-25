@@ -20,7 +20,7 @@ export const skipsSlice = createAppSlice({
         skips: [],
         filteredSkips: [],
         selectedSkip: null,
-        isMobile: true,
+        isMobile: false,
     } as SkipsSliceState,
     reducers: (create) => ({
         setIsMobile: create.reducer((state, action: PayloadAction<boolean>) => {
