@@ -10,7 +10,13 @@ const meta = {
       description: {
         component: 'A reusable button that accepts a size and a variant options, and also custom TailwindCSS styles.'
       },
-    }
+    },
+    backgrounds: {
+      default: 'dark',
+      values: [
+        { name: 'dark', value: '#1C1C1C' },
+      ],
+    },
   },
   tags: ['autodocs'],
   argTypes: {
