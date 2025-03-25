@@ -3,11 +3,11 @@ import { useEffect } from 'react';
 import { useAppDispatch } from '@/lib/hooks';
 import { setIsMobile } from '@/lib/features/skips/skipsSlice';
 
-export function ResponsiveHandler() {
+export function ResponsiveHandler({ isServerSide = typeof window === 'undefined' } = {}) {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        if (typeof window === 'undefined') return;
+        if (isServerSide) return;
         const updateIsMobile = () => {
             dispatch(setIsMobile(window.innerWidth <= 768));
         };
@@ -18,6 +18,6 @@ export function ResponsiveHandler() {
         return () => {
             window.removeEventListener('resize', updateIsMobile);
         };
-    }, [dispatch]);
+    }, [dispatch, isServerSide]);
     return null;
 }
