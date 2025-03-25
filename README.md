@@ -73,7 +73,7 @@ A responsive web application designed to streamline skip selection for waste man
 
 ### Installation
 ```bash
-git clone https://github.com/your-username/waste-management-challenge.git
+git clone https://github.com/will-terra/waste-management-challenge
 cd waste-management-challenge
 npm install
 ```
