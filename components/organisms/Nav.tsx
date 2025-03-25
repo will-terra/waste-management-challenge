@@ -16,35 +16,35 @@ export const Nav = () => {
       <div className="flex gap-2 items-center">
         {!isMobile && <>
           <button className={prevButtonStyles}>
-            <Image src={pinIcon} alt="pin" width={24} height={24} />
+            <Image src={pinIcon} alt="" aria-hidden="true" width={24} height={24} />
             <span className="ml-2 text-white">Postcode</span>
           </button>
           <div className="w-16 h-px bg-lightBlue"></div>
 
           <button className={prevButtonStyles}>
-            <Image src={trashIcon} alt="pin" width={24} height={24} />
+            <Image src={trashIcon} alt="" aria-hidden="true" width={24} height={24} />
             <span className="ml-2 text-white">Waste Type</span>
           </button>
         </>}
         <div className="w-16 h-px bg-lightGray"></div>
         <button className={prevButtonStyles}>
-          <Image src={truckIcon} alt="pin" width={24} height={24} />
+          <Image src={truckIcon} alt="" aria-hidden="true" width={24} height={24} />
           <span className="ml-2 text-white">Select Skip</span>
         </button>
         <div className="w-16 h-px bg-lightGray"></div>
         {!isMobile && <>
           <button disabled={true} className={nextButtonStyles}>
-            <Image src={shieldIcon} alt="pin" width={24} height={24} />
+            <Image src={shieldIcon} alt="" aria-hidden="true" width={24} height={24} />
             <span className="ml-2 text-white">Permit Check</span>
           </button>
           <div className="w-16 h-px bg-lightGray"></div>
           <button disabled={true} className={nextButtonStyles}>
-            <Image src={calendarIcon} alt="pin" width={24} height={24} />
+            <Image src={calendarIcon} alt="" aria-hidden="true" width={24} height={24} />
             <span className="ml-2 text-white">Choose Date</span>
           </button>
           <div className="w-16 h-px bg-lightGray"></div>
           <button disabled={true} className={nextButtonStyles}>
-            <Image src={cardIcon} alt="pin" width={24} height={24} />
+            <Image src={cardIcon} alt="" aria-hidden="true" width={24} height={24} />
             <span className="ml-2 text-white">Payment</span>
           </button>
         </>}
