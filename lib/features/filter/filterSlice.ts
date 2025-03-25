@@ -33,12 +33,15 @@ export const applyFiltersThunk = createAsyncThunk(
                 skip.allows_heavy_waste === filters.boolean.allows_heavy_waste;
 
             const hirePeriodFilter = filters.numeric.hire_period_days === null ||
+                filters.numeric.hire_period_days === 0 ||
                 skip.hire_period_days === filters.numeric.hire_period_days;
 
             const transportCostFilter = filters.numeric.transport_cost === null ||
+                filters.numeric.transport_cost === 0 ||
                 skip.transport_cost === filters.numeric.transport_cost;
 
             const perTonneCostFilter = filters.numeric.per_tonne_cost === null ||
+                filters.numeric.per_tonne_cost === 0 ||
                 skip.per_tonne_cost === filters.numeric.per_tonne_cost;
 
             const priceFilter = skip.price_before_vat !== null && Array.isArray(filters.range.price) ?
