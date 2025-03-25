@@ -3,7 +3,7 @@ import { Accordion } from "@base-ui-components/react"
 import { MainButton } from "../atoms/MainButton"
 import { RadioItem } from "../atoms/RadioItem"
 import { RemoveButton } from "../atoms/RemoveButton"
-import { RangeSlider } from "../atoms/RangeSlider"
+import { RangeSlider } from "../molecules/RangeSlider"
 import { NumericFilter } from "../molecules/NumericFilter"
 import { BooleanFilter } from "../molecules/BooleanFilter"
 import { SkipProperty } from "@/types/types"
@@ -48,13 +48,11 @@ export const Filter = ({ isMobile }: MobileProps) => {
 
     const filterContent = (
         <div className="flex flex-col gap-2">
-            <label className={`${isMobile ? 'text-2xl' : 'text-4xl'} text-white font-bold ${!isMobile && 'mr-auto mb-4'}`}>
+            <h1 className={`${isMobile ? 'text-2xl' : 'text-4xl'} text-white font-bold ${!isMobile && 'mr-auto mb-4'}`}>
                 {!isMobile && 'Filters:'}
-            </label>
-            <label className="text-2xl text-white font-bold"> By Price</label>
+            </h1>
             <RangeSlider />
 
-            <label className="text-2xl text-white font-bold"> Cost per tonne</label>
             <NumericFilter
                 property={SkipProperty.PER_TONNE_COST}
                 ariaLabel="Per tonne cost"
@@ -65,7 +63,6 @@ export const Filter = ({ isMobile }: MobileProps) => {
                 <RemoveButton onClick={() => onClick(SkipProperty.PER_TONNE_COST)} />
             </NumericFilter>
 
-            <label className="text-2xl text-white font-bold"> Transport Cost</label>
             <NumericFilter
                 property={SkipProperty.TRANSPORT_COST}
                 ariaLabel="Transport cost"
@@ -76,7 +73,6 @@ export const Filter = ({ isMobile }: MobileProps) => {
                 <RemoveButton onClick={() => onClick(SkipProperty.TRANSPORT_COST)} />
             </NumericFilter>
 
-            <label className="text-2xl text-white font-bold"> Hire period (days)</label>
             <NumericFilter
                 property={SkipProperty.HIRE_PERIOD_DAYS}
                 ariaLabel="Hire period days"
@@ -87,7 +83,6 @@ export const Filter = ({ isMobile }: MobileProps) => {
                 <RemoveButton onClick={() => onClick(SkipProperty.HIRE_PERIOD_DAYS)} />
             </NumericFilter>
 
-            <label className="text-2xl text-white font-bold"> Allows heavy waste?</label>
             <BooleanFilter
                 property={SkipProperty.ALLOWS_HEAVY_WASTE}
                 ariaLabel="Allows heavy waste"
@@ -98,7 +93,6 @@ export const Filter = ({ isMobile }: MobileProps) => {
                 <RemoveButton onClick={() => onClick(SkipProperty.ALLOWS_HEAVY_WASTE)} />
             </BooleanFilter>
 
-            <label className="text-2xl text-white font-bold"> Allowed on road?</label>
             <BooleanFilter
                 property={SkipProperty.ALLOWED_ON_ROAD}
                 ariaLabel="Allowed on road"

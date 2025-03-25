@@ -11,6 +11,7 @@ interface RadioItemProps {
 export const RadioItem = ({ value, checked, label }: RadioItemProps) => {
     return (
         <Radio.Root value={value}>
+            <Radio.Indicator />
             <MainButton
                 ariaLabel={`Filter by ${value}`}
                 variant={checked ? "blue" : "gray"}

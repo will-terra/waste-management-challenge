@@ -13,15 +13,18 @@ export const BooleanFilter = (props: BooleanFilterProps) => {
     const { property, ariaLabel, children, onValueChange, selectedValue } = props;
 
     return (
-        <RadioGroup
-            aria-label={ariaLabel}
-            name={property}
-            value={selectedValue}
-            onValueChange={(value) => onValueChange(property, value as boolean)}
-            className="flex gap-2"
-        >
-            {children}
-        </RadioGroup >
+        <div>
+            <label id={ariaLabel} className="text-2xl text-white font-bold">{ariaLabel}</label>
+            <RadioGroup
+                aria-labelledby={ariaLabel}
+                name={property}
+                value={selectedValue}
+                onValueChange={(value) => onValueChange(property, value as boolean)}
+                className="flex gap-2"
+            >
+                {children}
+            </RadioGroup >
+        </div>
     );
 };
 

@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import '@testing-library/jest-dom';
 import configureStore from 'redux-mock-store';
-import { RangeSlider } from '@/components/atoms/RangeSlider';
-import { handleRangeFilter } from '@/lib/features/filter/filterSlice';
+import { RangeSlider } from '@/components/molecules/RangeSlider';
 
 const mockStore = configureStore();
 
@@ -20,17 +20,17 @@ describe('RangeSlider Component', () => {
         store.dispatch = jest.fn();
     });
 
-    it('should render the RangeSlider component', () => {
+    test('should render the RangeSlider component', () => {
         render(
             <Provider store={store}>
                 <RangeSlider />
             </Provider>
         );
         const sliderElements = screen.getAllByRole('slider');
-        expect(sliderElements.length).toBe(2);
+        expect(sliderElements.length === 2).toBeTruthy();
     });
 
-    it('should dispatch handleRangeFilter when the slider value changes', () => {
+    test('should dispatch handleRangeFilter when the slider value changes', () => {
         render(
             <Provider store={store}>
                 <RangeSlider />
