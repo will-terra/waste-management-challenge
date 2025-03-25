@@ -1,5 +1,4 @@
 markdown
-Copy
 # Waste Management Skip Hire Platform
 
 [![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://waste-management-challenge.vercel.app/)  
@@ -12,16 +11,13 @@ A responsive web application designed to streamline skip selection for waste man
 - **Smart Filtering System**  
   Filter skips by size, hire duration, transport cost, road legality, and heavy waste capability.
   
-- **Interactive Selection Workflow**  
-  Three-step process (Size → Details → Confirmation) with persistent state management.
-
 - **Dynamic Content Handling**
   - Real-time price calculations
   - Empty state illustrations for no-match filters
   - Error boundaries with user-friendly messaging
 
 - **Cross-Device Optimization**  
-  Mobile-first responsive design with breakpoint-specific layouts.
+  Mobile responsive design with breakpoint-specific layouts.
 
 - **State Persistence**  
   Redux-powered state management maintains selections across navigation steps.
@@ -65,24 +61,30 @@ A responsive web application designed to streamline skip selection for waste man
 git clone https://github.com/your-username/waste-management-challenge.git
 cd waste-management-challenge
 npm install
-Development
-bash
-Copy
+```
+
+### Development
+```bash
 npm run dev
-Testing
-bash
-Copy
+```
+
+### Testing
 # Unit tests
+```bash
 npm run test
+```
 
 
 # E2E tests (requires dev server running)
+```bash
 npm run cy:open
+```
 
 Storybook
-bash
-Copy
+```bash
 npm run storybook
+```
+
 🧠 Design Decisions
 Next.js App Router
 Chosen for hybrid static & server rendering to optimize SEO and initial load performance.
