@@ -23,6 +23,23 @@ A responsive web application designed to streamline skip selection for waste man
 - **Accessibility Focus**  
   WCAG-compliant components with keyboard navigation and ARIA labels.
 
+## ♿  Accessibility Features
+  
+### For Screen Reader Users
+- Full compatibility with popular screen readers
+- Clear content structure with semantic headings
+- Dynamic updates announced automatically
+- Descriptive labels for all interactive elements
+
+### Keyboard Navigation
+- Complete keyboard operability
+- Visible focus indicators
+- Logical tab order
+
+### Inclusive Design
+- High contrast interface
+- Clear error messages
+
 ## 🛠 Technology Stack
 
 ### Core Architecture
