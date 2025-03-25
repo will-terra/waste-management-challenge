@@ -2,6 +2,7 @@
 import { useAppDispatch, useAppSelector } from '@/lib/hooks'
 import { MainButton } from '../atoms/MainButton'
 import { setSelectedSkip } from '@/lib/features/skips/skipsSlice'
+import { MainDialog } from '../molecules/MainDialog'
 
 export const Footer = () => {
     const selectedSkip = useAppSelector(state => state.skips.selectedSkip)
@@ -21,7 +22,7 @@ export const Footer = () => {
                     </div>
                     <div className="flex gap-4 items-center">
                         <MainButton ariaLabel="Cancel Skip Selection" variant="gray" size="large" className="px-4" onClick={handleOnClick}>Cancel</MainButton>
-                        <MainButton ariaLabel={`Continue with ${size} Yard selected Skip`} variant="blue" size="large">Continue</MainButton>
+                        <MainDialog size={size!} />
                     </div>
                 </footer>
             )}
