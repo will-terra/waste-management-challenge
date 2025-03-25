@@ -63,7 +63,7 @@ const mobileStore = configureStore({
 });
 
 describe("Nav Component", () => {
-    it("should render correctly on desktop", () => {
+    test("should render correctly on desktop", () => {
         const { getByText, getByAltText } = render(
             <Provider store={store}>
                 <Nav />
@@ -77,7 +77,7 @@ describe("Nav Component", () => {
         expect(getByText("Payment")).toBeInTheDocument();
     });
 
-    it("should render correctly on mobile", () => {
+    test("should render correctly on mobile", () => {
         const { getByText, queryByText } = render(
             <Provider store={mobileStore}>
                 <Nav />

@@ -4,7 +4,7 @@ import { SkipProperty } from '@/types/types';
 import { RadioItem } from '@/components/atoms/RadioItem';
 
 describe('NumericFilter Component', () => {
-    it('should render the NumericFilter component with children', () => {
+    test('should render the NumericFilter component with children', () => {
         render(
             <NumericFilter
                 property={SkipProperty.HIRE_PERIOD_DAYS}
@@ -19,7 +19,7 @@ describe('NumericFilter Component', () => {
         expect(childElement).toBeInTheDocument();
     });
 
-    it('should call onValueChange with the correct arguments when value changes', () => {
+    test('should call onValueChange with the correct arguments when value changes', () => {
         const mockOnValueChange = jest.fn();
         render(
             <NumericFilter

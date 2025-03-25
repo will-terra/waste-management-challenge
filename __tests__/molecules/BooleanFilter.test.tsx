@@ -4,7 +4,7 @@ import { SkipProperty } from '@/types/types';
 import { RadioItem } from '@/components/atoms/RadioItem';
 
 describe('BooleanFilter Component', () => {
-    it('should render the BooleanFilter component with children', () => {
+    test('should render the BooleanFilter component with children', () => {
         render(
             <BooleanFilter
                 property={SkipProperty.ALLOWED_ON_ROAD}
@@ -19,7 +19,7 @@ describe('BooleanFilter Component', () => {
         expect(childElement).toBeInTheDocument();
     });
 
-    it('should call onValueChange with the correct arguments when value changes', () => {
+    test('should call onValueChange with the correct arguments when value changes', () => {
         const mockOnValueChange = jest.fn();
         render(
             <BooleanFilter

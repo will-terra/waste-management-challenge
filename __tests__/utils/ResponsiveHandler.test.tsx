@@ -24,19 +24,19 @@ describe('ResponsiveHandler', () => {
         jest.clearAllMocks();
     });
 
-    it('should dispatch setIsMobile with true when window width is less than or equal to 768', () => {
+    test('should dispatch setIsMobile with true when window width is less than or equal to 768', () => {
         global.innerWidth = 768;
         render(<ResponsiveHandler />);
         expect(dispatchMock).toHaveBeenCalledWith(setIsMobile(true));
     });
 
-    it('should dispatch setIsMobile with false when window width is greater than 768', () => {
+    test('should dispatch setIsMobile with false when window width is greater than 768', () => {
         global.innerWidth = 1024;
         render(<ResponsiveHandler />);
         expect(dispatchMock).toHaveBeenCalledWith(setIsMobile(false));
     });
 
-    it('should update setIsMobile on window resize', () => {
+    test('should update setIsMobile on window resize', () => {
         render(<ResponsiveHandler />);
         global.innerWidth = 500;
         global.dispatchEvent(new Event('resize'));

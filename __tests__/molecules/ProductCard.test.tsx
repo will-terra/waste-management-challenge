@@ -17,7 +17,7 @@ const mockProduct: Skip = {
 };
 
 describe('ProductCard Component', () => {
-    it('should render the ProductCard component', () => {
+    test('should render the ProductCard component', () => {
         render(
             <Provider store={store}>
                 <ProductCard {...mockProduct} />
@@ -27,7 +27,7 @@ describe('ProductCard Component', () => {
         expect(productElement).toBeInTheDocument();
     });
 
-    it('should call setSelectedSkip with the correct arguments when clicked', () => {
+    test('should call setSelectedSkip with the correct arguments when clicked', () => {
         const { getByText } = render(
             <Provider store={store}>
                 <ProductCard {...mockProduct} />
@@ -39,7 +39,7 @@ describe('ProductCard Component', () => {
         expect(state.skips.selectedSkip).toEqual(mockProduct);
     });
 
-    it('should call setSelectedSkip with null when clicked again', () => {
+    test('should call setSelectedSkip with null when clicked again', () => {
         const { getByText } = render(
             <Provider store={store}>
                 <ProductCard {...mockProduct} />
