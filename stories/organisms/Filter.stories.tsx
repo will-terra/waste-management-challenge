@@ -1,8 +1,9 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Filter } from "./Filter";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
+
+import { Filter } from "@/components/organisms/Filter";
 import skipsReducer from "@/lib/features/skips/skipsSlice";
 import filterReducer from "@/lib/features/filter/filterSlice";
 

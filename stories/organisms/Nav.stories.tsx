@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Nav } from './Nav';
+import { Nav } from '@/components/organisms/Nav';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 

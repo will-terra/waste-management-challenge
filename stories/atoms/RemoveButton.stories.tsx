@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { RemoveButton } from './RemoveButton';
+import { RemoveButton } from '@/components/atoms/RemoveButton';
 
 const meta: Meta<typeof RemoveButton> = {
     title: 'Atoms/RemoveButton',

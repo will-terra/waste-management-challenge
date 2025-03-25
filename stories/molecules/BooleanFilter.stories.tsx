@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { BooleanFilter } from './BooleanFilter';
-import { RadioItem } from '../atoms/RadioItem';
-import { RemoveButton } from '../atoms/RemoveButton';
+import { BooleanFilter } from '@/components/molecules/BooleanFilter';
+import { RadioItem } from '@/components/atoms/RadioItem';
+import { RemoveButton } from '@/components/atoms/RemoveButton';
 import { SkipProperty } from '@/types/types';
 
 const meta: Meta<typeof BooleanFilter> = {

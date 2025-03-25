@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { EnhancedStore } from "@reduxjs/toolkit";
 import { Meta, StoryObj } from "@storybook/react";
-import { Footer } from "./Footer";
+import { Footer } from "@/components/organisms/Footer";
 import skipsReducer, { setSelectedSkip } from "@/lib/features/skips/skipsSlice";
 import filterReducer from "@/lib/features/filter/filterSlice";
 import { Skip } from "@/types/types";

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Message } from './Message';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
+import { Message } from '@/components/atoms/Message';
 
 const mockStore = configureStore({
     reducer: {},

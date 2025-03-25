@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { NumericFilter } from './NumericFilter';
-import { RadioItem } from '../atoms/RadioItem';
-import { RemoveButton } from '../atoms/RemoveButton';
 import { SkipProperty } from '@/types/types';
+import { NumericFilter } from '@/components/molecules/NumericFilter';
+import { RadioItem } from '@/components/atoms/RadioItem';
+import { RemoveButton } from '@/components/atoms/RemoveButton';
 
 const meta: Meta<typeof NumericFilter> = {
     title: 'Molecules/NumericFilter',

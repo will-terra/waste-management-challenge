@@ -2,7 +2,7 @@ import type { StorybookConfig } from "@storybook/experimental-nextjs-vite";
 
 const config: StorybookConfig = {
   "stories": [
-    "../components/**/*.stories.@(ts|tsx)"
+    "../stories/**/*.stories.@(ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-essentials",
@@ -14,8 +14,5 @@ const config: StorybookConfig = {
     "name": "@storybook/experimental-nextjs-vite",
     "options": {}
   },
-  "staticDirs": [
-    "../public"
-  ]
 };
 export default config;
