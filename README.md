@@ -1,4 +1,3 @@
-markdown
 # Waste Management Skip Hire Platform
 
 [![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://waste-management-challenge.vercel.app/)  
@@ -86,16 +85,16 @@ npm run storybook
 ```
 
 # 🧠 Design Decisions
-###Next.js App Router
+### Next.js App Router
 Chosen for hybrid static & server rendering to optimize SEO and initial load performance.
 
-###Redux Toolkit
+### Redux Toolkit
 Implemented with RTK Query for centralized API state management and automatic caching.
 
-###Tailwind + MUI Synergy
+### Tailwind + MUI Synergy
 Combines MUI's design system with Tailwind's utility-first flexibility for rapid iteration.
 
-###Testing Pyramid
+## Testing Pyramid
 
 Comprehensive coverage strategy:
 
@@ -105,7 +104,7 @@ Critical path E2E tests (Cypress)
 
 Visual regression via Storybook
 
-##📈 Performance Metrics
+## 📈 Performance Metrics
 Lighthouse Scores (Desktop):
 
 Performance: 98
