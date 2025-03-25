@@ -17,6 +17,7 @@
     "@mui/material": "^6.4.8",
     "@reduxjs/toolkit": "^2.2.0",
     "@tailwindcss/postcss": "^4.0.15",
+    "@vercel/speed-insights": "^1.2.0",
     "install": "^0.13.0",
     "next": "latest",
     "npm": "^11.2.0",
