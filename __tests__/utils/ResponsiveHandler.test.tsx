@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
 import { render } from '@testing-library/react';
 import { useDispatch } from 'react-redux';
@@ -24,20 +27,21 @@ describe('ResponsiveHandler', () => {
         jest.clearAllMocks();
     });
 
-    test('should dispatch setIsMobile with true when window width is less than or equal to 768', () => {
+    test('should detect mobile vs desktop based on window width', () => {
         global.innerWidth = 768;
         render(<ResponsiveHandler />);
         expect(dispatchMock).toHaveBeenCalledWith(setIsMobile(true));
-    });
 
-    test('should dispatch setIsMobile with false when window width is greater than 768', () => {
+        jest.clearAllMocks();
+
         global.innerWidth = 1024;
         render(<ResponsiveHandler />);
         expect(dispatchMock).toHaveBeenCalledWith(setIsMobile(false));
     });
 
-    test('should update setIsMobile on window resize', () => {
+    test('should update on window resize', () => {
         render(<ResponsiveHandler />);
+
         global.innerWidth = 500;
         global.dispatchEvent(new Event('resize'));
         expect(dispatchMock).toHaveBeenCalledWith(setIsMobile(true));
@@ -45,5 +49,11 @@ describe('ResponsiveHandler', () => {
         global.innerWidth = 1024;
         global.dispatchEvent(new Event('resize'));
         expect(dispatchMock).toHaveBeenCalledWith(setIsMobile(false));
+    });
+
+    test('should not dispatch setIsMobile in server-side environment', () => {
+        jest.clearAllMocks();
+        render(<ResponsiveHandler isServerSide={true} />);
+        expect(dispatchMock).not.toHaveBeenCalled();
     });
 });

@@ -16,7 +16,7 @@ export const Nav = () => {
       <div className="flex gap-2 items-center">
         {!isMobile && <>
           <button className={prevButtonStyles}>
-            <Image priority src={pinIcon} alt="pin" width={24} height={24} />
+            <Image src={pinIcon} alt="pin" width={24} height={24} />
             <span className="ml-2 text-white">Postcode</span>
           </button>
           <div className="w-16 h-px bg-lightBlue"></div>
