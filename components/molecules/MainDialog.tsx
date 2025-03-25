@@ -15,9 +15,16 @@ export const MainDialog = ({ size }: MainDialogProps) => {
         dispatch(setSelectedSkip(null));
         dispatch(resetFiltersThunk());
     };
+
+    const handleOnKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+            handleOnClick();
+        }
+    }
+
     return (
         <Dialog.Root>
-            <Dialog.Trigger>
+            <Dialog.Trigger tabIndex={1}>
                 <MainButton ariaLabel={`Continue with ${size} Yard selected Skip`} variant="blue" size="large">
                     Continue
                 </MainButton>
@@ -30,7 +37,7 @@ export const MainDialog = ({ size }: MainDialogProps) => {
                         You have finished the process of selecting your skip.
                     </Dialog.Description>
                     <div className="mt-4 flex justify-end">
-                        <Dialog.Close>
+                        <Dialog.Close onKeyDown={handleOnKeyDown}>
                             <MainButton ariaLabel="Close dialog" variant="gray" size="large" onClick={handleOnClick}>
                                 Close
                             </MainButton>

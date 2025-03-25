@@ -20,7 +20,7 @@ export const Footer = () => {
                         <p className=" text-white text-2xl font-bold"> {size} Yard Skip</p>
                         <p className="text-3xl md:text-4xl font-black text-secondaryLightBlue">£{price_before_vat}<span className="text-sm text-gray-400 ">per week</span></p>
                     </div>
-                    <div className="flex gap-4 items-center">
+                    <div tabIndex={1} className="flex gap-4 items-center">
                         <MainButton ariaLabel="Cancel Skip Selection" variant="gray" size="large" className="px-4" onClick={handleOnClick}>Cancel</MainButton>
                         <MainDialog size={size!} />
                     </div>

@@ -44,6 +44,7 @@ export const Filter = ({ isMobile }: MobileProps) => {
         dispatch(applyFiltersThunk());
         if (isMobile) {
             accordionTriggerRef.current?.click();
+            window.scrollTo({ top: 170, behavior: 'smooth' })
         }
     }
 

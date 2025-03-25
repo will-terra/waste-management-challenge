@@ -18,8 +18,18 @@ export const ProductCard = (product: Skip) => {
         }
         dispatch(setSelectedSkip(product))
     }
+
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+            handleOnClick(product);
+        }
+    };
+
     return (
-        <div onClick={() => handleOnClick(product)}
+        <div
+            tabIndex={0}
+            onClick={() => handleOnClick(product)}
+            onKeyDown={handleKeyDown}
             className={`flex flex-col min-w-fit md:min-w-80 gap-2 rounded-lg border-6 p-4 md:p-6 hover:border-lightBlue/50 border-lightGray text-white ${selectedSkip?.id === product.id ? "bg-lightBlue/30" : "bg-secondaryDarkGray"}`}>
             <Image
                 priority

@@ -25,12 +25,19 @@ export const MainButton: React.FC<MainButtonProps> = ({
         } ${variant === "gray" ? " bg-lightGray " : "bg-lightBlue"
         } text-white  rounded-md border border-secondaryDarkGray`;
 
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' && onClick && !disabled) {
+            onClick();
+        }
+    };
+
     return (
         <div
             tabIndex={0}
             aria-label={ariaLabel}
             className={`${options} ${disabled ? "cursor-not-allowed" : ""}`}
-            onClick={onClick}
+            onClick={disabled ? undefined : onClick}
+            onKeyDown={handleKeyDown}
         >
             {children}
         </div>
