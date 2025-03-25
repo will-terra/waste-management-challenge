@@ -24,7 +24,7 @@ export const MainDialog = ({ size }: MainDialogProps) => {
 
     return (
         <Dialog.Root>
-            <Dialog.Trigger tabIndex={1}>
+            <Dialog.Trigger tabIndex={1} aria-haspopup={true}>
                 <MainButton ariaLabel={`Continue with ${size} Yard selected Skip`} variant="blue" size="large">
                     Continue
                 </MainButton>

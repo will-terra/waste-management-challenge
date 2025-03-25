@@ -124,7 +124,7 @@ export const Filter = ({ isMobile }: MobileProps) => {
             <Accordion.Root className="flex justify-center w-full self-start">
                 <Accordion.Item className="w-full">
                     <Accordion.Header className="flex justify-center mx-4">
-                        <Accordion.Trigger ref={accordionTriggerRef} className="mt-8 w-9/10">
+                        <Accordion.Trigger aria-haspopup={true} ref={accordionTriggerRef} className="mt-8 w-9/10">
                             <MainButton
                                 ariaLabel="Open filters menu"
                                 size="large"

@@ -12,7 +12,7 @@ export const Nav = () => {
   const isMobile = useAppSelector((state) => state.skips.isMobile);
 
   return (
-    <div className="flex bg-darkGray justify-center align-center h-16">
+    <div tabIndex={-1} className="flex bg-darkGray justify-center align-center h-16">
       <div className="flex gap-2 items-center">
         {!isMobile && <>
           <button className={prevButtonStyles}>
