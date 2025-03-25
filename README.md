@@ -131,14 +131,17 @@ Seamlessly integrates with:
 
 Comprehensive coverage strategy:
 
+- **Critical path E2E tests (Cypress)**
+  Five workflows of tests
+  
+- **Visual regression via Storybook**
+  More than 10 stories
+  
 - **95%+ Unit test coverage (Jest)**
 
-![unittest](https://github.com/user-attachments/assets/65f2ee59-289c-4550-9fa2-c24a96c686ae)
+![unittest](https://github.com/user-attachments/assets/c5c93249-0d5e-4550-aee1-0e4de0fbc0a6)
 
 
-- **Critical path E2E tests (Cypress)**
-
-- **Visual regression via Storybook**
 
 ## 📈 Performance Metrics
 
