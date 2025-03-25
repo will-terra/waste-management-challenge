@@ -85,6 +85,7 @@ npm run storybook
 ```
 
 # 🧠 Design Decisions
+
 ### Next.js App Router
 Chosen for hybrid static & server rendering to optimize SEO and initial load performance.
 
@@ -93,6 +94,39 @@ Implemented with RTK Query for centralized API state management and automatic ca
 
 ### Tailwind + MUI Synergy
 Combines MUI's design system with Tailwind's utility-first flexibility for rapid iteration.
+
+## Atomic Design Architecture
+Adopted Atomic Design methodology to create a maintainable component hierarchy:
+
+- **Atoms**: Foundational elements (buttons, inputs, icons) with strict prop-type contracts  
+- **Molecules**: Functional combinations (search bars, filter groups) enforcing component relationships
+- **Organisms**: Context-aware modules (header, filter section) handling business logic  
+
+**Implementation Benefits**:
+- ♻️ Strict parent-child dependency boundaries
+- 🧩 Visual regression prevention through composition
+- 🔍 Storybook-driven component development
+- ⚡ Selective hydration with Next.js dynamic imports
+
+Seamlessly integrates with:
+- Tailwind's utility-class composition
+- Storybook's component isolation
+- Redux's state colocation principles
+
+## ⚡ Performance Optimizations
+
+- **Memoized State Management**  
+  Strategic `useMemo` usage prevents unnecessary re-renders of filter results and complex UI components.
+
+- **Modular Redux Architecture**  
+  Split state slices with isolated responsibilities to optimize store updates and reduce reconciliation overhead.
+
+- **Skeleton Loading States**  
+  Content placeholders maintain layout stability during asynchronous data operations.
+
+- **Critical Image Prioritization**  
+  Next.js image component with lazy loading and priority pre-fetch for above-the-fold assets.
+  
 
 ## Testing Pyramid
 
@@ -105,6 +139,7 @@ Critical path E2E tests (Cypress)
 Visual regression via Storybook
 
 ## 📈 Performance Metrics
+
 Lighthouse Scores (Desktop):
 
 Performance: 98
