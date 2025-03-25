@@ -28,6 +28,7 @@ export const ProductCard = (product: Skip) => {
     return (
         <div
             tabIndex={0}
+            aria-haspopup={true}
             onClick={() => handleOnClick(product)}
             onKeyDown={handleKeyDown}
             className={`flex flex-col min-w-fit md:min-w-80 gap-2 rounded-lg border-6 p-4 md:p-6 hover:border-lightBlue/50 border-lightGray text-white ${selectedSkip?.id === product.id ? "bg-lightBlue/30" : "bg-secondaryDarkGray"}`}>
