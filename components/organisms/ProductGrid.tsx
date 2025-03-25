@@ -17,6 +17,7 @@ export const ProductGrid = () => {
             return <Message
                 title="Error on fetching skips :("
                 subtitle="Try reloading the page"
+                button={false}
             />;
         }
 
@@ -24,6 +25,7 @@ export const ProductGrid = () => {
             return <Message
                 title="Ooops, no skips found :("
                 subtitle="Try using less filters"
+                button={true}
             />;
         }
 
