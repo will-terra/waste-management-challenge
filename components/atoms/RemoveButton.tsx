@@ -10,7 +10,7 @@ export const RemoveButton = ({ onClick }: RemoveButtonProps) => {
 
     return (
         <MainButton
-            ariaLabel={`Remove filter`}
+            ariaLabel="Remove filter"
             variant="gray"
             size="small"
             className="h-8"

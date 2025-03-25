@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import type { ReactNode } from "react";
 import { StoreProvider } from "./StoreProvider";
-import { ResponsiveHandler } from '@/components/utils/ResponsiveHandler';
+import { ResponsiveHandler } from "@/components/utils/ResponsiveHandler";
 import { Nav } from "@/components/organisms/Nav";
 import { Footer } from "@/components/organisms/Footer";
 import "@/styles/globals.css";

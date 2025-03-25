@@ -40,7 +40,7 @@ export const Filter = ({ isMobile }: MobileProps) => {
     }
 
     const handleApplyFilters = () => {
-        dispatch(applyFiltersThunk())
+        dispatch(applyFiltersThunk());
         if (isMobile) {
             accordionTriggerRef.current?.click();
         }

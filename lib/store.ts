@@ -4,16 +4,16 @@ import { skipsSlice } from "./features/skips/skipsSlice";
 import { fetchSkips } from "./features/skips/skipsApiSlice";
 import { filterSlice } from "./features/filter/filterSlice";
 
-const rootReducer = combineSlices(skipsSlice, filterSlice);
+export const rootReducer = combineSlices(skipsSlice, filterSlice);
 export type RootState = ReturnType<typeof rootReducer>;
 
-export const makeStore = () => {
-  const store = configureStore({
-    reducer: rootReducer,
-  });
-  store.dispatch(fetchSkips());
-  return store;
-};
+export const store = configureStore({
+  reducer: rootReducer,
+});
+
+store.dispatch(fetchSkips());
+
+export const makeStore = () => store;
 
 export type AppStore = ReturnType<typeof makeStore>;
 export type AppDispatch = AppStore["dispatch"];

@@ -65,7 +65,6 @@ export const WithSkipSelected: Story = {
                 "per_tonne_cost": null,
                 "price_before_vat": 448,
                 "vat": 20,
-                "postcode": "NR32",
                 "allowed_on_road": false,
                 "allows_heavy_waste": false
             })
