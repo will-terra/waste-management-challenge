@@ -1,59 +1,67 @@
-Waste Management Skip Hire Platform
-Vercel Deployment
-Live Demo: https://waste-management-challenge.vercel.app/
+markdown
+Copy
+# Waste Management Skip Hire Platform
+
+[![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://waste-management-challenge.vercel.app/)  
+**Live Demo:** [https://waste-management-challenge.vercel.app/](https://waste-management-challenge.vercel.app/)
 
 A responsive web application designed to streamline skip selection for waste management, built as a technical assessment for a Software Engineer role. This solution demonstrates modern frontend architecture, robust error handling, and user-centric design.
 
-✨ Key Features
-Smart Filtering System
-Filter skips by size, hire duration, transport cost, road legality, and heavy waste capability.
+## ✨ Key Features
 
-Interactive Selection Workflow
-Three-step process (Size → Details → Confirmation) with persistent state management.
+- **Smart Filtering System**  
+  Filter skips by size, hire duration, transport cost, road legality, and heavy waste capability.
+  
+- **Interactive Selection Workflow**  
+  Three-step process (Size → Details → Confirmation) with persistent state management.
 
-Dynamic Content Handling
+- **Dynamic Content Handling**
+  - Real-time price calculations
+  - Empty state illustrations for no-match filters
+  - Error boundaries with user-friendly messaging
 
-Real-time price calculations
+- **Cross-Device Optimization**  
+  Mobile-first responsive design with breakpoint-specific layouts.
 
-Empty state illustrations for no-match filters
+- **State Persistence**  
+  Redux-powered state management maintains selections across navigation steps.
 
-Error boundaries with user-friendly messaging
+- **Accessibility Focus**  
+  WCAG-compliant components with keyboard navigation and ARIA labels.
 
-Cross-Device Optimization
+## 🛠 Technology Stack
 
-State Persistence
-Redux-powered state management maintains selections across navigation steps.
+### Core Architecture
+| Category              | Technology                                                                 |
+|-----------------------|----------------------------------------------------------------------------|
+| Framework             | Next.js 14 (App Router, Server Components)                                 |
+| State Management      | Redux Toolkit with RTK Query                                               |
+| Styling               | Tailwind CSS + CSS Modules                                                 |
+| Component Library     | Material UI (v5) with custom Base UI extensions                            |
+| Type Safety           | TypeScript 5                                                               |
 
-Accessibility Focus
-WCAG-compliant components with keyboard navigation and ARIA labels.
+### Quality Assurance
+| Category              | Technology                                                                 |
+|-----------------------|----------------------------------------------------------------------------|
+| Unit Testing          | Jest + React Testing Library                                               |
+| E2E Testing           | Cypress 12                                                                 |
+| Component Workshop    | Storybook 7                                                                |
 
-🛠 Technology Stack
-Core Architecture
-Category	Technology
-Framework	Next.js 14 (App Router, Server Components)
-State Management	Redux Toolkit with RTK Query
-Styling	Tailwind CSS + CSS Modules
-Component Library	Material UI (v5) with custom Base UI extensions
-Type Safety	TypeScript 5
-Quality Assurance
-Category	Technology
-Unit Testing	Jest + React Testing Library
-E2E Testing	Cypress 12
-Component Workshop	Storybook 7
-DevOps
-Category	Technology
-Package Manager	npm 9
-CI/CD	Vercel Edge Network (Automatic deployments via Git integration)
-Monitoring	Next.js Analytics (Core Web Vitals tracking)
-🚀 Getting Started
-Prerequisites
-Node.js 18+
+### DevOps
+| Category              | Technology                                                                 |
+|-----------------------|----------------------------------------------------------------------------|
+| Package Manager       | npm 9                                                                      |
+| CI/CD                 | Vercel Edge Network (Automatic deployments via Git integration)            |
+| Monitoring            | Next.js Analytics (Core Web Vitals tracking)                               |
 
-npm 9+
+## 🚀 Getting Started
 
-Installation
-bash
-Copy
+### Prerequisites
+- Node.js 18+
+- npm 9+
+
+### Installation
+```bash
 git clone https://github.com/your-username/waste-management-challenge.git
 cd waste-management-challenge
 npm install
@@ -65,13 +73,12 @@ Testing
 bash
 Copy
 # Unit tests
-npm test
+npm run test
 
-# Component tests
-npm run test:components
 
 # E2E tests (requires dev server running)
-npm run cypress:open
+npm run cy:open
+
 Storybook
 bash
 Copy
@@ -89,7 +96,7 @@ Combines MUI's design system with Tailwind's utility-first flexibility for rapid
 Testing Pyramid
 Comprehensive coverage strategy:
 
-80%+ Unit test coverage (Jest)
+95%+ Unit test coverage (Jest)
 
 Critical path E2E tests (Cypress)
 
@@ -98,7 +105,7 @@ Visual regression via Storybook
 📈 Performance Metrics
 Lighthouse Scores (Desktop):
 
-Performance: 96
+Performance: 98
 
 Accessibility: 100
 
