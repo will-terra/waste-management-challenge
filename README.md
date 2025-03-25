@@ -11,7 +11,6 @@ A responsive web application designed to streamline skip selection for waste man
   Filter skips by size, hire duration, transport cost, road legality, and heavy waste capability.
   
 - **Dynamic Content Handling**
-  - Real-time price calculations
   - Empty state illustrations for no-match filters
   - Error boundaries with user-friendly messaging
 
