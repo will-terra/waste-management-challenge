@@ -1,21 +1,7 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
-import skipsReducer from "@/lib/features/skips/skipsSlice";
 import { ProductCard } from "@/components/molecules/ProductCard";
+import { StoreWrapper } from "../utils";
 
-const store = configureStore({
-    reducer: {
-        skips: skipsReducer,
-    },
-});
-
-const StoreWrapper = (Story: React.ComponentType) => (
-    <Provider store={store}>
-        <Story />
-    </Provider>
-);
 
 const meta: Meta<typeof ProductCard> = {
     title: "Molecules/ProductCard",

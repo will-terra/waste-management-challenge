@@ -1,24 +1,6 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
-
 import { Filter } from "@/components/organisms/Filter";
-import skipsReducer from "@/lib/features/skips/skipsSlice";
-import filterReducer from "@/lib/features/filter/filterSlice";
-
-const store = configureStore({
-    reducer: {
-        skips: skipsReducer,
-        filter: filterReducer,
-    },
-});
-
-const StoreWrapper = (Story: React.ComponentType) => (
-    <Provider store={store}>
-        <Story />
-    </Provider>
-);
+import { StoreWrapper } from "../utils";
 
 const meta: Meta<typeof Filter> = {
     title: "Organisms/Filter",

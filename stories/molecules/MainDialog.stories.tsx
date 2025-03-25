@@ -1,13 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { MainDialog } from '@/components/molecules/MainDialog';
-import { Provider } from 'react-redux';
-import { store } from '@/lib/store';
+import { StoreWrapper } from '../utils';
 
-const StoreWrapper = (Story: React.ComponentType) => (
-    <Provider store={store}>
-        <Story />
-    </Provider>
-);
 
 const meta: Meta<typeof MainDialog> = {
     title: 'Molecules/MainDialog',
