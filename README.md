@@ -68,19 +68,19 @@ npm install
 npm run dev
 ```
 
-### Testing
-# Unit tests
+# Testing
+### Unit tests
 ```bash
 npm run test
 ```
 
 
-# E2E tests (requires dev server running)
+### E2E tests (requires dev server running)
 ```bash
 npm run cy:open
 ```
 
-Storybook
+### Storybook
 ```bash
 npm run storybook
 ```
