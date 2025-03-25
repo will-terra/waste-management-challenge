@@ -132,20 +132,17 @@ Seamlessly integrates with:
 
 Comprehensive coverage strategy:
 
-95%+ Unit test coverage (Jest)
+### 95%+ Unit test coverage (Jest)
 
-Critical path E2E tests (Cypress)
+![unittest](https://github.com/user-attachments/assets/65f2ee59-289c-4550-9fa2-c24a96c686ae)
 
-Visual regression via Storybook
+
+### Critical path E2E tests (Cypress)
+
+### Visual regression via Storybook
 
 ## 📈 Performance Metrics
 
 Lighthouse Scores (Desktop):
+![lighthouse](https://github.com/user-attachments/assets/b558b8df-163d-4a10-ad17-ae142810760e)
 
-Performance: 98
-
-Accessibility: 100
-
-Best Practices: 100
-
-SEO: 100
