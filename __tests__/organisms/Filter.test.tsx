@@ -188,5 +188,24 @@ describe("Filter Component", () => {
         fireEvent.click(openButton);
         expect(screen.queryByText(/By Price/i)).not.toBeInTheDocument();
     });
+
+    test("closes filter menu after clicking Apply filters in mobile view", async () => {
+        renderWithProviders(<Filter isMobile={true} />);
+
+        const openButton = screen.getByLabelText(/Open filters menu/i);
+        fireEvent.click(openButton);
+
+        expect(screen.getByText(/By Price/i)).toBeInTheDocument();
+
+        const filterButton = screen.getAllByText(236)[0];
+        fireEvent.click(filterButton);
+
+        const applyButton = screen.getByText("Apply filters");
+        fireEvent.click(applyButton);
+
+        expect(screen.queryByText(/By Price/i)).not.toBeInTheDocument();
+
+        expect(store.getState().filter.numeric.per_tonne_cost).toBe(236);
+    });
 });
 
