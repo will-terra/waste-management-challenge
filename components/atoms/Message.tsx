@@ -5,7 +5,7 @@ import { resetFiltersThunk } from "@/lib/features/filter/filterSlice";
 interface MessageProps {
     title: string;
     subtitle: string;
-    button: boolean;
+    button?: boolean;
 }
 
 export const Message = ({ title, subtitle, button }: MessageProps) => {
