@@ -1,0 +1,6 @@
+onlyBuiltDependencies:
+  - "@vercel/speed-insights"
+  - core-js-pure
+  - cypress
+  - esbuild
+  - sharp

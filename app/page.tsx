@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import { Filter } from "@/components/organisms/Filter";
 import { ProductGrid } from "@/components/organisms/ProductGrid";
@@ -14,12 +14,14 @@ export default function HomePage() {
   }, []);
 
   if (!isClient) {
-    return <div className="flex flex-col justify-start md:flex-row gap-4 w-full min-h-screen bg-black items-center">
-      <Filter isMobile={false} />
-      <div className="flex flex-col justify-center self-start w-full mt-8">
-        <MainHeader />
+    return (
+      <div className="flex flex-col justify-start md:flex-row gap-4 w-full min-h-screen bg-black items-center">
+        <Filter isMobile={false} />
+        <div className="flex flex-col justify-center self-start w-full mt-8">
+          <MainHeader />
+        </div>
       </div>
-    </div>
+    );
   }
 
   return (
@@ -29,4 +31,3 @@ export default function HomePage() {
     </div>
   );
 }
-

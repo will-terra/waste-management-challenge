@@ -9,8 +9,8 @@ A responsive web application designed to streamline skip selection for waste man
 
 - **Smart Filtering System**  
   Filter skips by size, hire duration, transport cost, road legality, and heavy waste capability.
-  
 - **Dynamic Content Handling**
+
   - Empty state illustrations for no-match filters
   - Error boundaries with user-friendly messaging
 
@@ -23,55 +23,63 @@ A responsive web application designed to streamline skip selection for waste man
 - **Accessibility Focus**  
   WCAG-compliant components with keyboard navigation and ARIA labels.
 
-## ♿  Accessibility Features
-  
+## ♿ Accessibility Features
+
 ### For Screen Reader Users
+
 - Full compatibility with popular screen readers
 - Clear content structure with semantic headings
 - Dynamic updates announced automatically
 - Descriptive labels for all interactive elements
 
 ### Keyboard Navigation
+
 - Complete keyboard operability
 - Visible focus indicators
 - Logical tab order
 
 ### Inclusive Design
+
 - High contrast interface
 - Clear error messages
 
 ## 🛠 Technology Stack
 
 ### Core Architecture
-| Category              | Technology                                                                 |
-|-----------------------|----------------------------------------------------------------------------|
-| Framework             | Next.js 14 (App Router, Server Components)                                 |
-| State Management      | Redux Toolkit with RTK Query                                               |
-| Styling               | Tailwind CSS + CSS Modules                                                 |
-| Component Library     | Material UI (v5) with custom Base UI extensions                            |
-| Type Safety           | TypeScript 5                                                               |
+
+| Category          | Technology                                      |
+| ----------------- | ----------------------------------------------- |
+| Framework         | Next.js 14 (App Router, Server Components)      |
+| State Management  | Redux Toolkit with RTK Query                    |
+| Styling           | Tailwind CSS + CSS Modules                      |
+| Component Library | Material UI (v5) with custom Base UI extensions |
+| Type Safety       | TypeScript 5                                    |
 
 ### Quality Assurance
-| Category              | Technology                                                                 |
-|-----------------------|----------------------------------------------------------------------------|
-| Unit Testing          | Jest + React Testing Library                                               |
-| E2E Testing           | Cypress 12                                                                 |
-| Component Workshop    | Storybook 7                                                                |
+
+| Category           | Technology                   |
+| ------------------ | ---------------------------- |
+| Unit Testing       | Jest + React Testing Library |
+| E2E Testing        | Cypress 12                   |
+| Component Workshop | Storybook 7                  |
 
 ### DevOps
-| Category              | Technology                                                                 |
-|-----------------------|----------------------------------------------------------------------------|
-| Package Manager       | npm 9                                                                      |
-| CI/CD                 | Vercel Edge Network (Automatic deployments via Git integration)            |
-| Monitoring            | Next.js Analytics (Core Web Vitals tracking)                               |
+
+| Category        | Technology                                                      |
+| --------------- | --------------------------------------------------------------- |
+| Package Manager | npm 9                                                           |
+| CI/CD           | Vercel Edge Network (Automatic deployments via Git integration) |
+| Monitoring      | Next.js Analytics (Core Web Vitals tracking)                    |
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - npm 9+
 
 ### Installation
+
 ```bash
 git clone https://github.com/will-terra/waste-management-challenge
 cd waste-management-challenge
@@ -79,23 +87,27 @@ npm install
 ```
 
 ### Development
+
 ```bash
 npm run dev
 ```
 
 ## Testing
+
 ### Unit tests
+
 ```bash
 npm run test
 ```
 
-
 ### E2E tests (requires dev server running)
+
 ```bash
 npm run cy:open
 ```
 
 ### Storybook
+
 ```bash
 npm run storybook
 ```
@@ -103,28 +115,34 @@ npm run storybook
 # 🧠 Design Decisions
 
 ### Next.js App Router
+
 Chosen for hybrid static & server rendering to optimize SEO and initial load performance.
 
 ### Redux Toolkit
+
 Implemented with RTK Query for centralized API state management and automatic caching.
 
 ### Tailwind + MUI Synergy
+
 Combines MUI's design system with Tailwind's utility-first flexibility for rapid iteration.
 
 ## Atomic Design Architecture
+
 Adopted Atomic Design methodology to create a maintainable component hierarchy:
 
-- **Atoms**: Foundational elements (buttons, inputs, icons) with strict prop-type contracts  
+- **Atoms**: Foundational elements (buttons, inputs, icons) with strict prop-type contracts
 - **Molecules**: Functional combinations (search bars, filter groups) enforcing component relationships
-- **Organisms**: Context-aware modules (header, filter section) handling business logic  
+- **Organisms**: Context-aware modules (header, filter section) handling business logic
 
 **Implementation Benefits**:
+
 - ♻️ Strict parent-child dependency boundaries
 - 🧩 Visual regression prevention through composition
 - 🔍 Storybook-driven component development
 - ⚡ Selective hydration with Next.js dynamic imports
 
 Seamlessly integrates with:
+
 - Tailwind's utility-class composition
 - Storybook's component isolation
 - Redux's state colocation principles
@@ -142,7 +160,6 @@ Seamlessly integrates with:
 
 - **Critical Image Prioritization**  
   Next.js image component with lazy loading and priority pre-fetch for above-the-fold assets.
-  
 
 ## Testing Pyramid
 
@@ -150,19 +167,14 @@ Comprehensive coverage strategy:
 
 - **Critical path E2E tests (Cypress)**
   Five workflows of tests
-  
 - **Visual regression via Storybook**
   More than 10 stories
-  
 - **95%+ Unit test coverage (Jest)**
 
 ![unittest](https://github.com/user-attachments/assets/c5c93249-0d5e-4550-aee1-0e4de0fbc0a6)
-
-
 
 ## 📈 Performance Metrics
 
 Lighthouse Scores (Desktop):
 
 ![lighthouse](https://github.com/user-attachments/assets/b558b8df-163d-4a10-ad17-ae142810760e)
-

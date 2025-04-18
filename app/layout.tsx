@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import type { ReactNode } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { StoreProvider } from "./StoreProvider";
 import { ResponsiveHandler } from "@/components/utils/ResponsiveHandler";
 import { Nav } from "@/components/organisms/Nav";
@@ -19,7 +19,6 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-
       <StoreProvider>
         <body>
           <head>
@@ -28,8 +27,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </head>
           <Nav />
           <ResponsiveHandler />
-          <div className="bg-darkGray min-h-screen"  >
-            <main >{children}</main>
+          <div className="bg-darkGray min-h-screen">
+            <main>{children}</main>
           </div>
           <Footer />
           <SpeedInsights />
