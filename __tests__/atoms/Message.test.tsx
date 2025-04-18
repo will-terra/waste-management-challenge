@@ -39,18 +39,18 @@ describe("Message Component", () => {
       </Provider>,
     );
 
-    expect(screen.getByText("Test Title")).toBeInTheDocument();
-    expect(screen.getByText("Test Subtitle")).toBeInTheDocument();
+    expect(screen.getByText(/Test Title/i)).toBeInTheDocument();
+    expect(screen.getByText(/Test Subtitle/i)).toBeInTheDocument();
   });
 
   it("should dispatch resetFiltersThunk when the button is clicked", () => {
     render(
       <Provider store={store}>
-        <Message title="Test Title" subtitle="Test Subtitle" />
+        <Message title="Test Title" subtitle="Test Subtitle" button={true} />
       </Provider>,
     );
 
-    const resetButton = screen.getByText("Reset Filters");
+    const resetButton = screen.getByText(/Reset Filters/i);
     fireEvent.click(resetButton);
 
     expect(store.dispatch).toHaveBeenCalledTimes(1);
