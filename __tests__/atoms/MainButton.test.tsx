@@ -50,4 +50,32 @@ describe("MainButton Component", () => {
     const button = screen.getByText("Disabled");
     expect(button).toHaveClass("cursor-not-allowed");
   });
+
+  test("calls onClick handler when Enter key is pressed", () => {
+    const handleClick = jest.fn();
+
+    render(
+      <MainButton ariaLabel="Keyboard button" onClick={handleClick}>
+        Press Enter
+      </MainButton>,
+    );
+
+    const button = screen.getByText("Press Enter");
+    fireEvent.keyDown(button, { key: "Enter" });
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+
+  test("does not call onClick handler when disabled and Enter key is pressed", () => {
+    const handleClick = jest.fn();
+
+    render(
+      <MainButton ariaLabel="Disabled keyboard button" onClick={handleClick} disabled>
+        Disabled Enter
+      </MainButton>,
+    );
+
+    const button = screen.getByText("Disabled Enter");
+    fireEvent.keyDown(button, { key: "Enter" });
+    expect(handleClick).not.toHaveBeenCalled();
+  });
 });

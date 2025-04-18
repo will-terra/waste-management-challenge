@@ -60,4 +60,57 @@ describe("ProductCard Component", () => {
     const state = store.getState();
     expect(state.skips.selectedSkip).toBeNull();
   });
+
+  test("should call setSelectedSkip with the correct arguments when Enter key is pressed", () => {
+    const { getByText } = render(
+      <Provider store={store}>
+        <ProductCard {...mockProduct} />
+      </Provider>,
+    );
+
+    store.dispatch({ type: 'skips/setSelectedSkip', payload: null });
+
+    const productElement = getByText("10 Yard Skip");
+    fireEvent.keyDown(productElement.parentElement!, { key: "Enter" });
+
+    const state = store.getState();
+    expect(state.skips.selectedSkip).toEqual(mockProduct);
+  });
+
+  test("should not call setSelectedSkip when a non-Enter key is pressed", () => {
+    const { getByText } = render(
+      <Provider store={store}>
+        <ProductCard {...mockProduct} />
+      </Provider>,
+    );
+
+    store.dispatch({ type: 'skips/setSelectedSkip', payload: null });
+
+    const productElement = getByText("10 Yard Skip");
+    fireEvent.keyDown(productElement.parentElement!, { key: "Space" });
+
+    const state = store.getState();
+    expect(state.skips.selectedSkip).toBeNull();
+  });
+
+  test("should toggle selection when Enter key is pressed twice", () => {
+    const { getByText } = render(
+      <Provider store={store}>
+        <ProductCard {...mockProduct} />
+      </Provider>,
+    );
+
+    store.dispatch({ type: 'skips/setSelectedSkip', payload: null });
+
+    const productElement = getByText("10 Yard Skip");
+    fireEvent.keyDown(productElement.parentElement!, { key: "Enter" });
+
+    let state = store.getState();
+    expect(state.skips.selectedSkip).toEqual(mockProduct);
+
+    fireEvent.keyDown(productElement.parentElement!, { key: "Enter" });
+
+    state = store.getState();
+    expect(state.skips.selectedSkip).toBeNull();
+  });
 });

@@ -2,8 +2,6 @@ import {
   render,
   screen,
   fireEvent,
-  act,
-  waitFor,
 } from "@testing-library/react";
 import { MainDialog } from "@/components/molecules/MainDialog";
 import * as hooks from "@/lib/hooks";
@@ -53,5 +51,48 @@ describe("MainDialog", () => {
       2,
       "mocked-reset-filters-thunk-action",
     );
+  });
+
+  test("dispatches actions when Enter key is pressed on Close button", async () => {
+    render(<MainDialog size={4} />);
+
+    const continueButton = screen.getByLabelText(
+      /Continue with 4 Yard selected Skip/i,
+    );
+    fireEvent.click(continueButton);
+
+    expect(screen.getByText("Congratulations")).toBeInTheDocument();
+
+    const closeButton = screen.getByLabelText(/Close dialog/i);
+    fireEvent.keyDown(closeButton.parentElement!, { key: "Enter" });
+
+    expect(setSelectedSkip).toHaveBeenCalledWith(null);
+    expect(resetFiltersThunk).toHaveBeenCalled();
+    expect(mockDispatch).toHaveBeenNthCalledWith(
+      1,
+      "mocked-set-selected-skip-action",
+    );
+    expect(mockDispatch).toHaveBeenNthCalledWith(
+      2,
+      "mocked-reset-filters-thunk-action",
+    );
+  });
+
+  test("does not dispatch actions when non-Enter key is pressed on Close button", async () => {
+    render(<MainDialog size={4} />);
+
+    const continueButton = screen.getByLabelText(
+      /Continue with 4 Yard selected Skip/i,
+    );
+    fireEvent.click(continueButton);
+
+    expect(screen.getByText("Congratulations")).toBeInTheDocument();
+
+    const closeButton = screen.getByLabelText(/Close dialog/i);
+    fireEvent.keyDown(closeButton.parentElement!, { key: "Escape" });
+
+    expect(setSelectedSkip).not.toHaveBeenCalled();
+    expect(resetFiltersThunk).not.toHaveBeenCalled();
+    expect(mockDispatch).not.toHaveBeenCalled();
   });
 });
